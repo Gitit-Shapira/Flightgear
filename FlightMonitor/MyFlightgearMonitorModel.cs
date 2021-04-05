@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Threading;
 using System.Xml.Linq;
 namespace FlightMonitor
@@ -72,7 +68,7 @@ namespace FlightMonitor
         public void connect(string ip, int port)
         {
             telnetClient.connect(ip, port);
-            string path = @"C:\Users\Dvir\source\repos\FlightMonitor\reg_flight.csv";
+            string path = @"C:\Users\Public\Gitit\Flightgear\reg_flight.csv";
             this.file = new System.IO.StreamReader(path);
 
             XElement Xelement = XElement.Load(@"C:\Program Files\FlightGear 2020.3.6\data\Protocol\playback_small.xml");
