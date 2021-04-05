@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,13 +26,20 @@ namespace FlightMonitor
             InitializeComponent();
             main_window.Show();
             Control control_bar = new Control();
+            Thread thr = new Thread(letsBegin);
+            thr.Start();
+            
+           /* main_window.Show();
+            Control control_bar = new Control();*/
+        }
+
+        private void letsBegin()
+        {
             MyFlightgearMonitorModel letsStart;
             letsStart = new MyFlightgearMonitorModel(new MyTelnetClient());
             letsStart.connect("localhost", 5400);
             letsStart.start();
             letsStart.disconnect();
-           /* main_window.Show();
-            Control control_bar = new Control();*/
         }
     }
 
