@@ -63,7 +63,7 @@ namespace FlightMonitor
             this.telnetClient = telnetClient;
             this.lineCSV = 0;
             stop = false;
-            this.speed = 10;
+            this.speed = 30;
         }
         public void connect(string ip, int port)
         {
@@ -97,6 +97,12 @@ namespace FlightMonitor
 
         public void start()
         {
+            Thread t = new Thread(run);
+            t.Start();
+        }
+
+        public void run()
+        {
             while (!stop)
             {
 
@@ -111,7 +117,6 @@ namespace FlightMonitor
                     Thread.Sleep(1000 / this.speed);
                 }
             }
-            
         }
         public void NotifyPropertyChanged(string propName)
         {

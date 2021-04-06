@@ -50,7 +50,11 @@ namespace FlightMonitor
 
         public void Play()
         {
-            model.Stop = false;
+            if (model.Stop)
+            {
+                model.Stop = false;
+                model.start();
+            }
         }
 
         public void Pause()

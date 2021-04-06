@@ -33,10 +33,7 @@ namespace FlightMonitor
 
         private void letsBegin()
         {
-            
             model.connect("localhost", 5400);
-            model.start();
-            model.disconnect();
         }
 
         private void Fly_default_click(object sender, RoutedEventArgs e)
