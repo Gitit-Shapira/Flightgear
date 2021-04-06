@@ -52,6 +52,10 @@ namespace FlightMonitor
             }
         }
 
+        public int LengthCSV
+        {
+            get { return timeS.NumOfRows; }
+        }
         //the methods
 
         ITelnetClient telnetClient;
@@ -113,7 +117,7 @@ namespace FlightMonitor
                 }
                 else
                 {
-                    Debug.WriteLine(lineCSV);
+                    //Debug.WriteLine(lineCSV);
                     telnetClient.write(string.Join(",", timeS.GetRow(lineCSV).ToArray()));
                     LineCSV++;
                     Thread.Sleep(1000 / this.speed);
@@ -124,10 +128,6 @@ namespace FlightMonitor
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            if(propName == "LineCSV")
-            {
-                Debug.Assert(lineCSV != 0, "oof");
-            }
         }
     }
 }

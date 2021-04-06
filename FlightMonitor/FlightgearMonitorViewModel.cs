@@ -10,8 +10,8 @@ namespace FlightMonitor
 {
     class FlightgearMonitorViewModel : INotifyPropertyChanged
         {
-        private IFlightgearMonitorModel model;
-        public FlightgearMonitorViewModel(IFlightgearMonitorModel model)
+        private MyFlightgearMonitorModel model;
+        public FlightgearMonitorViewModel(MyFlightgearMonitorModel model)
         {
             this.model = model;
             model.PropertyChanged +=
@@ -48,6 +48,10 @@ namespace FlightMonitor
             }
         }
 
+        public int VM_LengthCSV
+        {
+            get { return model.LengthCSV; }
+        }
         public void Play()
         {
             if (model.Stop)
