@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightMonitor
 {
-    interface ITelnetClient
+    public interface ITelnetClient
     {
         void connect(string ip, int port);
         void write(string lineCSV);

@@ -25,7 +25,10 @@ namespace FlightMonitor
         {
             InitializeComponent();
             main_window.Show();
-            Control control_bar = new Control();
+            MyFlightgearMonitorModel model = new MyFlightgearMonitorModel(new MyTelnetClient());
+            ControlBar1.HookVM(model);
+            // ControlBar control_bar = new ControlBar();
+            //control_bar.HookVM(model);
             Thread thr = new Thread(letsBegin);
             thr.Start();
             

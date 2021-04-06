@@ -24,7 +24,12 @@ namespace FlightMonitor
         public ControlBar()
         {
             InitializeComponent();
-            VM = new FlightgearMonitorViewModel(new MyFlightgearMonitorModel(new MyTelnetClient()));
+
+        }
+
+        public void HookVM(MyFlightgearMonitorModel model)
+        {
+            VM = new FlightgearMonitorViewModel(model);
             DataContext = VM;
         }
         private void Button_Play(object sender, RoutedEventArgs e)
