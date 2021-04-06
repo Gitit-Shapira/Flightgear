@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Threading;
 using System.Xml.Linq;
+using System.Diagnostics;
+
 namespace FlightMonitor
 {
     public class MyFlightgearMonitorModel : IFlightgearMonitorModel
@@ -13,7 +13,7 @@ namespace FlightMonitor
         System.IO.StreamReader file;
         string line;
         TimeSeries timeS;
-        private int lineCSV;
+        private volatile int lineCSV;
         private int speed;
 
 
@@ -61,14 +61,15 @@ namespace FlightMonitor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
         {
             this.telnetClient = telnetClient;
-            this.lineCSV = 0;
+            this.lineCSV = 1;
             stop = false;
             this.speed = 30;
+            
         }
         public void connect(string ip, int port)
         {
             telnetClient.connect(ip, port);
-            string path = @"C:\Users\Dvir\RiderProjects\Flightgear-DVIR\reg_flight.csv";
+            string path = @"C:\Users\Roey\Documents\GitHub\Flightgear\reg_flight.csv";
             this.file = new System.IO.StreamReader(path);
 
             XElement Xelement = XElement.Load(@"C:\Program Files\FlightGear 2020.3.6\data\Protocol\playback_small.xml");
@@ -86,7 +87,7 @@ namespace FlightMonitor
             {
                 timeS.AddRow(line);
             }
-
+            start();
         }
         public void disconnect()
         {
@@ -112,8 +113,9 @@ namespace FlightMonitor
                 }
                 else
                 {
+                    Debug.WriteLine(lineCSV);
                     telnetClient.write(string.Join(",", timeS.GetRow(lineCSV).ToArray()));
-                    lineCSV++;
+                    LineCSV++;
                     Thread.Sleep(1000 / this.speed);
                 }
             }
@@ -122,6 +124,10 @@ namespace FlightMonitor
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            if(propName == "LineCSV")
+            {
+                Debug.Assert(lineCSV != 0, "oof");
+            }
         }
     }
 }

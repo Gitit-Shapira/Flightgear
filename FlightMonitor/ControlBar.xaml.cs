@@ -39,12 +39,12 @@ namespace FlightMonitor
 
         private void Button_Stop(object sender, RoutedEventArgs e)
         {
-            VM.Pause();
+            VM.Stop();
         }
 
         private void Button_Pause(object sender, RoutedEventArgs e)
         {
-            VM.Stop();
+            VM.Pause();
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

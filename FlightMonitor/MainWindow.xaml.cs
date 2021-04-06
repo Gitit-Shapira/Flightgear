@@ -26,13 +26,7 @@ namespace FlightMonitor
             InitializeComponent();
             main_window.Show();
             model = new MyFlightgearMonitorModel(new MyTelnetClient());
-            Thread thr = new Thread(letsBegin);
-            thr.Start();
-            
-        }
-
-        private void letsBegin()
-        {
+            ControlBar1.HookVM(model);
             model.connect("localhost", 5400);
         }
 

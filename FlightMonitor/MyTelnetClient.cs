@@ -24,7 +24,7 @@ namespace FlightMonitor
         public void write(string lineCSV)
         {
             lineCSV += "\r\n";
-            Debug.Write(lineCSV,"cat");
+            //Debug.Write(lineCSV,"cat");
             ns.Write(System.Text.Encoding.ASCII.GetBytes(lineCSV),0,lineCSV.Length);
             ns.Flush();
         }
