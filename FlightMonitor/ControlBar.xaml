@@ -8,10 +8,26 @@
              d:DesignHeight="80" d:DesignWidth="800">
     <Viewbox HorizontalAlignment="Center">
         <Grid>
-            <Button Content="Play" HorizontalAlignment="Left" Height="25" Margin="19,25,0,0" VerticalAlignment="Top" Width="60" Click="Button_Play"/>
-            <Button Content="Pause" HorizontalAlignment="Left" Height="25" Margin="84,25,0,0" VerticalAlignment="Top" Width="60" Click="Button_Pause" Grid.ColumnSpan="2"/>
-            <Button Content="Stop" HorizontalAlignment="Left" Height="25" Margin="149,25,0,0" VerticalAlignment="Top" Width="60" Click="Button_Stop" Grid.Column="1"/>
-            <Slider HorizontalAlignment="Left" Margin="15,50,0,0" Name="slider_seek" VerticalAlignment="Top" Width="770" ValueChanged="Slider_ValueChanged" Grid.ColumnSpan="4"/>
+
+            <Button  HorizontalAlignment="Left" Height="31" Margin="19,15,0,0" VerticalAlignment="Top" Width="40" Click="Button_Play" >
+                <StackPanel >
+                    <Image Source="Play_Button.jpg" Height="31" Width="37"/>
+                </StackPanel>
+            </Button>
+
+            <Button  HorizontalAlignment="Left" Height="35" Margin="61,15,0,0" VerticalAlignment="Top" Width="30" Click="Button_Pause" >
+                <StackPanel >
+                    <Image Source="Pause_image.jpg" Height="29" Width="26" RenderTransformOrigin="0.649,0.572"/>
+                </StackPanel>
+            </Button>
+
+            <Button HorizontalAlignment="Left" Height="35" Margin="93,15,0,0" VerticalAlignment="Top" Width="33" Click="Button_Stop" RenderTransformOrigin="0.64,0.521">
+                <StackPanel>
+                    <Image Source="Stop_image.jpg" Height="30" Width="30" />
+                </StackPanel>
+            </Button>
+
+            <Slider HorizontalAlignment="Left" Margin="15,50,0,0" Name="slider_seek" VerticalAlignment="Top" Width="770" ValueChanged="Slider_ValueChanged" Grid.ColumnSpan="4" Background="WhiteSmoke"/>
         </Grid>
     </Viewbox>
 </UserControl>
