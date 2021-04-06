@@ -28,6 +28,8 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Pause_image.jpg" t="Include" />
+      <e p="Play_Button.jpg" t="Include" />
       <e p="Properties" t="Include">
         <e p="AssemblyInfo.cs" t="Include" />
         <e p="Resources.Designer.cs" t="Include" />
@@ -35,6 +37,7 @@
         <e p="Settings.Designer.cs" t="Include" />
         <e p="Settings.settings" t="Include" />
       </e>
+      <e p="Stop_image.jpg" t="Include" />
       <e p="TimeSeries.cs" t="Include" />
     </e>
   </component>
