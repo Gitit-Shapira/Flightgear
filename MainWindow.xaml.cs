@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Threading;
 namespace FlightMonitor
 {
     /// <summary>
@@ -24,14 +24,29 @@ namespace FlightMonitor
         {
             InitializeComponent();
             main_window.Show();
-            Control control_bar = new Control();
+            ControlBar control_bar = new ControlBar();
+            Thread thr = new Thread(letsBegin);
+            thr.Start();
+            
+        }
+
+        private void letsBegin()
+        {
             MyFlightgearMonitorModel letsStart;
             letsStart = new MyFlightgearMonitorModel(new MyTelnetClient());
             letsStart.connect("localhost", 5400);
             letsStart.start();
             letsStart.disconnect();
-           /* main_window.Show();
-            Control control_bar = new Control();*/
+        }
+
+        private void Fly_default_click(object sender, RoutedEventArgs e)
+        {
+            //VM.execute();
+        }
+
+        private void ControlBar_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
