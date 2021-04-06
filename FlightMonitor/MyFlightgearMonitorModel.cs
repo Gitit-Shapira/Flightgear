@@ -68,7 +68,7 @@ namespace FlightMonitor
         public void connect(string ip, int port)
         {
             telnetClient.connect(ip, port);
-            string path = @"C:\Users\Public\Gitit\Flightgear\reg_flight.csv";
+            string path = @"C:\Users\Dvir\RiderProjects\Flightgear-DVIR\reg_flight.csv";
             this.file = new System.IO.StreamReader(path);
 
             XElement Xelement = XElement.Load(@"C:\Program Files\FlightGear 2020.3.6\data\Protocol\playback_small.xml");
