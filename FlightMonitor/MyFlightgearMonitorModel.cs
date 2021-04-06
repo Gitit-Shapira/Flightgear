@@ -7,7 +7,7 @@ using System.Threading;
 using System.Xml.Linq;
 namespace FlightMonitor
 {
-    class MyFlightgearMonitorModel : IFlightgearMonitorModel
+    public class MyFlightgearMonitorModel : IFlightgearMonitorModel
     {
         //fields
         System.IO.StreamReader file;
@@ -111,7 +111,7 @@ namespace FlightMonitor
                     Thread.Sleep(1000 / this.speed);
                 }
             }
-
+            
         }
         public void NotifyPropertyChanged(string propName)
         {

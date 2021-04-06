@@ -13,6 +13,6 @@
             <ColumnDefinition Width="69*"/>
             <ColumnDefinition Width="665*"/>
         </Grid.ColumnDefinitions>
-        <con:ControlBar x:Name="ControlBar" Grid.Column="2" Margin="10,338,29,135" />
+        <con:ControlBar x:Name="ControlBar1" Grid.Column="2" Margin="10,338,29,135" />
     </Grid>
 </Window>
