@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FlightMonitor"
   ],
+  "SelectedNode": "\\FlightMonitor\\FlightMonitor.sln",
   "PreviewInSolutionExplorer": false
 }

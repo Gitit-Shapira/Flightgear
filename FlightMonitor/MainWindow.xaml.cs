@@ -39,7 +39,6 @@ namespace FlightMonitor
 
         private void letsBegin()
         { 
-            model = new MyFlightgearMonitorModel(new MyTelnetClient());
             model.connect("localhost", 5400);
             model.start();
             model.disconnect();
