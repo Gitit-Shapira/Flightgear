@@ -4,18 +4,42 @@
     <projectFile>FlightMonitor.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00662c49-919f-4b2e-a03c-275d844f1dac" name="Default Changelist" comment="">
+    <list default="true" id="ed7367a8-046f-463e-b7e0-c73442238226" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pause_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Play_Button.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/FlightMonitor/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FlightMonitor/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ControlBar.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ControlBar.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/ControlBar.baml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/ControlBar.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/ControlBar.g.i.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.lref" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.lref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.lref" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.lref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ControlBar.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightMonitor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlightMonitor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/FlightMonitor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/FlightMonitor.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.lref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.lref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MainWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MainWindow.g.i.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Release/ControlBar.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/ControlBar.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Release/FlightMonitor_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/FlightMonitor_MarkupCompile.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Release/FlightMonitor_MarkupCompile.lref" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/FlightMonitor_MarkupCompile.lref" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Release/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/MainWindow.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +54,37 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/MainWindow.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/obj/Release/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/ControlBar.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/obj/Debug/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/MainWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/obj/Release/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/ControlBar.xaml" />
+      <option value="$PROJECT_DIR$/MainWindow.xaml" />
+      <option value="$PROJECT_DIR$/MainWindow.xaml.cs" />
+      <option value="$PROJECT_DIR$/ControlBar.xaml.cs" />
     </changedPaths>
   </component>
+  <component name="ProjectId" id="1qnjTjX3aZyctprifxAupQX5PwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="0">
       <created>1617721926830</created>
@@ -60,6 +109,9 @@
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
