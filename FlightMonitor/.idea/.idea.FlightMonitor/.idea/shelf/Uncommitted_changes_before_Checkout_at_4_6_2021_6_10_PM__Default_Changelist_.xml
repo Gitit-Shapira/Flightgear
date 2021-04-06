@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM_[Default_Changelist]" date="1617721834866" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 4/6/2021 6:10 PM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
+    <option name="AFTER_PATH" value="obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM_[Default_Changelist]/DesignTimeResolveAssemblyReferencesInput.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="../.vs/slnx.sqlite" />
+    <option name="AFTER_PATH" value="../.vs/slnx.sqlite" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM_[Default_Changelist]/slnx.sqlite" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".vs/FlightMonitor/v16/.suo" />
+    <option name="AFTER_PATH" value=".vs/FlightMonitor/v16/.suo" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM_[Default_Changelist]/.suo" />
+  </binary>
+</changelist>
