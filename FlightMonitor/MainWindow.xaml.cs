@@ -20,11 +20,12 @@ namespace FlightMonitor
     /// </summary>
     public partial class MainWindow : Window
     {
+        MyFlightgearMonitorModel model;
         public MainWindow()
         {
             InitializeComponent();
             main_window.Show();
-            ControlBar control_bar = new ControlBar();
+            model = new MyFlightgearMonitorModel(new MyTelnetClient());
             Thread thr = new Thread(letsBegin);
             thr.Start();
             
@@ -32,11 +33,10 @@ namespace FlightMonitor
 
         private void letsBegin()
         {
-            MyFlightgearMonitorModel letsStart;
-            letsStart = new MyFlightgearMonitorModel(new MyTelnetClient());
-            letsStart.connect("localhost", 5400);
-            letsStart.start();
-            letsStart.disconnect();
+            
+            model.connect("localhost", 5400);
+            model.start();
+            model.disconnect();
         }
 
         private void Fly_default_click(object sender, RoutedEventArgs e)
@@ -47,28 +47,6 @@ namespace FlightMonitor
         private void ControlBar_Loaded(object sender, RoutedEventArgs e)
         {
 
-        }
-    }
-
-    internal class PrintWriter
-    {
-        public PrintWriter(object outputStream)
-        {
-        }
-
-        internal void close()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void flush()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void println(string line)
-        {
-            throw new NotImplementedException();
         }
     }
 }
