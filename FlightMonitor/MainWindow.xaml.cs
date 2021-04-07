@@ -22,6 +22,7 @@ namespace FlightMonitor
         private void Fly_default_click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "CSV file (*.csv)|*.csv";
             if (openFileDialog.ShowDialog() == true)
             {
                 Debug.WriteLine(openFileDialog.FileName);
