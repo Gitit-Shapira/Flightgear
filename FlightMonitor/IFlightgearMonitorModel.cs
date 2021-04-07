@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 namespace FlightMonitor
 {
-    interface IFlightgearMonitorModel : INotifyPropertyChanged
+    public interface IFlightgearMonitorModel : INotifyPropertyChanged
     {
         // connection to the Flightgear
         void connect(string ip, int port);
@@ -17,5 +13,8 @@ namespace FlightMonitor
         int LineCSV { get; set; }
         int Speed { get; set; }
         Boolean Stop { get; set; }
+        int LengthCSV { get; }
+        string Path { get; set; }
+        Boolean IsPathInput { get; }
     }
 }

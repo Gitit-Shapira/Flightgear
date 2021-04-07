@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Xml.Linq;
-using System.Diagnostics;
 
 namespace FlightMonitor
 {
@@ -15,7 +14,7 @@ namespace FlightMonitor
         TimeSeries timeS;
         private volatile int lineCSV;
         private int speed;
-
+        string path;
 
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,6 +29,21 @@ namespace FlightMonitor
                 NotifyPropertyChanged("LineCSV");
             }
 
+        }
+        public string Path
+        {
+            get { return path; }
+            set
+            {
+                if (path == null || stop)
+                {
+                    LineCSV = 0;
+                    path = value;
+                    connect("localhost", 5400);
+                    NotifyPropertyChanged("Path");
+                    NotifyPropertyChanged("IsPathInput");
+                }
+            }
         }
         public int Speed
         {
@@ -54,7 +68,20 @@ namespace FlightMonitor
 
         public int LengthCSV
         {
-            get { return timeS.NumOfRows; }
+            get
+            {
+                if (timeS == null)
+                    return 0;
+                else return timeS.NumOfRows;
+            }
+        }
+
+        public Boolean IsPathInput
+        {
+            get
+            {
+                return path != null;
+            }
         }
         //the methods
 
@@ -68,12 +95,10 @@ namespace FlightMonitor
             this.lineCSV = 1;
             stop = false;
             this.speed = 30;
-            
         }
         public void connect(string ip, int port)
         {
             telnetClient.connect(ip, port);
-            string path = @"C:\Users\Roey\Documents\GitHub\Flightgear\reg_flight.csv";
             this.file = new System.IO.StreamReader(path);
 
             XElement Xelement = XElement.Load(@"C:\Program Files\FlightGear 2020.3.6\data\Protocol\playback_small.xml");
@@ -91,6 +116,7 @@ namespace FlightMonitor
             {
                 timeS.AddRow(line);
             }
+            NotifyPropertyChanged("LengthCSV");
             start();
         }
         public void disconnect()

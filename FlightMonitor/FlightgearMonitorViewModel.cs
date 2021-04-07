@@ -9,9 +9,9 @@ using System.ComponentModel;
 namespace FlightMonitor
 {
     class FlightgearMonitorViewModel : INotifyPropertyChanged
-        {
-        private MyFlightgearMonitorModel model;
-        public FlightgearMonitorViewModel(MyFlightgearMonitorModel model)
+    {
+        private IFlightgearMonitorModel model;
+        public FlightgearMonitorViewModel(IFlightgearMonitorModel model)
         {
             this.model = model;
             model.PropertyChanged +=
@@ -51,6 +51,14 @@ namespace FlightMonitor
         public int VM_LengthCSV
         {
             get { return model.LengthCSV; }
+        }
+
+        public Boolean VM_IsPathInput
+        {
+            get
+            {
+                return model.IsPathInput;
+            }
         }
         public void Play()
         {

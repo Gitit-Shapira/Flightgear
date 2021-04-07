@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="TimeSeries.cs" />
     <Page Include="ControlBar.xaml">
       <SubType>Designer</SubType>

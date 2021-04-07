@@ -9,19 +9,19 @@
     <Viewbox HorizontalAlignment="Center">
         <Grid>
 
-            <Button  HorizontalAlignment="Left" Height="31" Margin="19,15,0,0" VerticalAlignment="Top" Width="40" Click="Button_Play" >
+            <Button IsEnabled="{Binding VM_IsPathInput}" HorizontalAlignment="Left" Height="31" Margin="19,15,0,0" VerticalAlignment="Top" Width="40" Click="Button_Play" >
                 <StackPanel >
                     <Image Source="Play_Button.jpg" Height="31" Width="37"/>
                 </StackPanel>
             </Button>
 
-            <Button  HorizontalAlignment="Left" Height="35" Margin="61,15,0,0" VerticalAlignment="Top" Width="30" Click="Button_Pause" >
+            <Button IsEnabled="{Binding VM_IsPathInput}" HorizontalAlignment="Left" Height="35" Margin="61,15,0,0" VerticalAlignment="Top" Width="30" Click="Button_Pause" >
                 <StackPanel >
                     <Image Source="Pause_image.jpg" Height="29" Width="26" RenderTransformOrigin="0.649,0.572"/>
                 </StackPanel>
             </Button>
 
-            <Button HorizontalAlignment="Left" Height="35" Margin="93,15,0,0" VerticalAlignment="Top" Width="33" Click="Button_Stop" RenderTransformOrigin="0.64,0.521">
+            <Button IsEnabled="{Binding VM_IsPathInput}" HorizontalAlignment="Left" Height="35" Margin="93,15,0,0" VerticalAlignment="Top" Width="33" Click="Button_Stop" RenderTransformOrigin="0.64,0.521">
                 <StackPanel>
                     <Image Source="Stop_image.jpg" Height="30" Width="30" />
                 </StackPanel>

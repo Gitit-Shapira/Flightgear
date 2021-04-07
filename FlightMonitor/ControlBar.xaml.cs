@@ -28,7 +28,7 @@ namespace FlightMonitor
 
         }
 
-        public void HookVM(MyFlightgearMonitorModel model)
+        public void HookVM(IFlightgearMonitorModel model)
         {
             VM = new FlightgearMonitorViewModel(model);
             DataContext = VM;
@@ -50,7 +50,8 @@ namespace FlightMonitor
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-//            Debug.Write(slider_seek.Maximum);
+
         }
+
     }
 }
