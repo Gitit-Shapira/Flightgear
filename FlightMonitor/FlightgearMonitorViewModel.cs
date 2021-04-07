@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 
 
@@ -40,7 +36,7 @@ namespace FlightMonitor
         }
         public int VM_LineCSV
         {
-            get { return model.LineCSV; }
+            get { return model.LineCSV - 1; }
             set
             {
                 model.LineCSV = value;
