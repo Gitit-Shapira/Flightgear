@@ -5,38 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed7367a8-046f-463e-b7e0-c73442238226" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_6_2021_6_10_PM__Default_Changelist_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/FlightMonitor/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FlightMonitor/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ControlBar.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/ControlBar.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ControlBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ControlBar.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightMonitor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlightMonitor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IFlightgearMonitorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/IFlightgearMonitorModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyFlightgearMonitorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyFlightgearMonitorModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/FlightMonitor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/FlightMonitor.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/ControlBar.baml" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/ControlBar.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/ControlBar.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/ControlBar.g.i.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csproj.GenerateResource.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.g.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.i.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.lref" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor_MarkupCompile.lref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MainWindow.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MainWindow.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/MainWindow.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MainWindow.g.i.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +41,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Release/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/FlightDataViewModel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -201,7 +178,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="new-imgs-btn" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
