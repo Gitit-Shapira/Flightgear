@@ -14,7 +14,8 @@ namespace FlightMonitor
         int Speed { get; set; }
         Boolean Stop { get; set; }
         int LengthCSV { get; }
+        string XMLPath { get; set; }
         string Path { get; set; }
-        Boolean IsPathInput { get; }
+        Boolean FilesInput { get; }
     }
 }
