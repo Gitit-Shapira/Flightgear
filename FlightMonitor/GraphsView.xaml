@@ -14,13 +14,12 @@
             <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Row="2"
-                      Grid.Column="1">
+                      Grid.Column="0">
             <ComboBox x:Name="comboBox"/>
         </StackPanel>
 
