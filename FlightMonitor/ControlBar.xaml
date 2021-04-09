@@ -27,7 +27,12 @@
                 </StackPanel>
             </Button>
 
-            <Slider IsEnabled="{Binding VM_FilesInput}" Value="{Binding VM_LineCSV}" Minimum="0" Maximum="{Binding VM_LengthCSV}" HorizontalAlignment="Left" Margin="15,50,0,0" Name="slider_seek" VerticalAlignment="Top" Width="770" ValueChanged="Slider_ValueChanged" Grid.ColumnSpan="4" Background="WhiteSmoke"/>
+            <Slider IsEnabled="{Binding VM_FilesInput}" 
+                    Value="{Binding VM_LineCSV}" Minimum="0" 
+                    Maximum="{Binding VM_LengthCSV}" HorizontalAlignment="Left" 
+                    Margin="15,50,0,0" Name="slider_seek" VerticalAlignment="Top" 
+                    Width="770" ValueChanged="Slider_ValueChanged" Grid.ColumnSpan="4" 
+                    Background="WhiteSmoke"/>
         </Grid>
     </Viewbox>
 </UserControl>

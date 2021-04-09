@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,20 @@ namespace FlightMonitor
         {
             InitializeComponent();
 
+            while (true)
+            {
+                if (VM != null && VM.VM_FilesInput)
+                {
+
+                    foreach (string s in VM.ColumnNames())
+                    {
+                        ComboBoxItem newItem = new ComboBoxItem();
+                        newItem.Content = s;
+                        Debug.WriteLine(s);
+                        comboBox.Items.Add(newItem);
+                    }
+                }
+            }
         }
 
         public void HookVM(IFlightgearMonitorModel model)
@@ -33,14 +48,6 @@ namespace FlightMonitor
             VM = new FlightgearMonitorViewModel(model);
             DataContext = VM;
         }
-        private void ComboBox(object sender, RoutedEventArgs e)
-        {
-            foreach (string s in VM.ColumnNames())
-            {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = s;
-                comboBox.Items.Add(newItem);
-            }
-        }
+       
     }
 }
