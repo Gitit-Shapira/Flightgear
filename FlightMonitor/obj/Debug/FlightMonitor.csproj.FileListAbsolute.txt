@@ -34,3 +34,5 @@ C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CoreCompileInputs.cache
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.exe
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.pdb
+C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\GraphsView.g.cs
+C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\GraphsView.baml
