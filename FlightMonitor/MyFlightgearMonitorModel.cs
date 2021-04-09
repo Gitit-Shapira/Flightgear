@@ -174,6 +174,12 @@ namespace FlightMonitor
                 }
             }
         }
+
+        public List<string> ColumnNames()
+        {
+            return timeS.GetColumnNames();
+        }
+
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)

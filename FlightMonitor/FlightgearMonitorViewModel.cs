@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 
@@ -75,6 +76,11 @@ namespace FlightMonitor
             model.Stop = true;
             model.LineCSV = 0;
             //Atom
+        }
+
+        public List<string> ColumnNames()
+        {
+            return model.ColumnNames();
         }
     }
 }

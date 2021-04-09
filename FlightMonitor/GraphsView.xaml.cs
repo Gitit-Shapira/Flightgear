@@ -20,14 +20,25 @@ namespace FlightMonitor
     /// </summary>
     public partial class GraphsView : UserControl
     {
+
+        private FlightgearMonitorViewModel VM;
         public GraphsView()
         {
             InitializeComponent();
 
-            for (int i = 0; i < 5; ++i)
+        }
+
+        public void HookVM(IFlightgearMonitorModel model)
+        {
+            VM = new FlightgearMonitorViewModel(model);
+            DataContext = VM;
+        }
+        private void ComboBox(object sender, RoutedEventArgs e)
+        {
+            foreach (string s in VM.ColumnNames())
             {
                 ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = "Item " + i;
+                newItem.Content = s;
                 comboBox.Items.Add(newItem);
             }
         }

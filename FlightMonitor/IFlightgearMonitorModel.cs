@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 namespace FlightMonitor
 {
@@ -8,6 +9,8 @@ namespace FlightMonitor
         void connect(string ip, int port);
         void disconnect();
         void start();
+
+        List<string> ColumnNames();
 
         //properties
         int LineCSV { get; set; }
