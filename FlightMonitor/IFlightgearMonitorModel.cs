@@ -16,5 +16,11 @@ namespace FlightMonitor
         int LengthCSV { get; }
         string Path { get; set; }
         Boolean IsPathInput { get; }
+        float Altitude_ft { get; }
+        float Airspeed_kt { get; }
+        float Heading { get; }
+        float Pitch { get; }
+        float Roll { get; }
+        float Yaw { get; }
     }
 }
