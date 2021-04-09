@@ -6,7 +6,23 @@
              xmlns:local="clr-namespace:FlightMonitor"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="2"
+                      Grid.Column="1">
+            <ComboBox x:Name="comboBox"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>

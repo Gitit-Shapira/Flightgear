@@ -23,6 +23,13 @@ namespace FlightMonitor
         public GraphsView()
         {
             InitializeComponent();
+
+            for (int i = 0; i < 5; ++i)
+            {
+                ComboBoxItem newItem = new ComboBoxItem();
+                newItem.Content = "Item " + i;
+                comboBox.Items.Add(newItem);
+            }
         }
     }
 }
