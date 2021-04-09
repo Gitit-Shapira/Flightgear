@@ -49,11 +49,11 @@ namespace FlightMonitor
             get { return model.LengthCSV; }
         }
 
-        public Boolean VM_IsPathInput
+        public Boolean VM_FilesInput
         {
             get
             {
-                return model.IsPathInput;
+                return model.FilesInput;
             }
         }
         public void Play()

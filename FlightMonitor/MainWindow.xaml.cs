@@ -23,6 +23,7 @@ namespace FlightMonitor
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "CSV file (*.csv)|*.csv";
+
             if (openFileDialog.ShowDialog() == true)
             {
                 Debug.WriteLine(openFileDialog.FileName);
@@ -31,9 +32,17 @@ namespace FlightMonitor
 
         }
 
-        private void ControlBar_Loaded(object sender, RoutedEventArgs e)
+        private void Load_xml(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XML file (*.xml)|*.xml";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.InitialDirectory = @"C:\Program Files\FlightGear 2020.3.6\data\Protocol\";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Debug.WriteLine(openFileDialog.FileName);
+                vm.VM_XML = openFileDialog.FileName;
+            }
         }
     }
 }

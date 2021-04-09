@@ -15,7 +15,7 @@ namespace FlightMonitor
         private volatile int lineCSV;
         private int speed;
         string path;
-
+        string xmlpath;
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -39,9 +39,31 @@ namespace FlightMonitor
                 {
                     LineCSV = 0;
                     path = value;
-                    connect("localhost", 5400);
                     NotifyPropertyChanged("Path");
-                    NotifyPropertyChanged("IsPathInput");
+                    if (FilesInput)
+                    {
+                        connect("localhost", 5400);
+                        NotifyPropertyChanged("FilesInput");
+                    }
+                }
+            }
+        }
+
+        public string XMLPath
+        {
+            get { return xmlpath; }
+            set
+            {
+                if (xmlpath == null || stop)
+                {
+                    LineCSV = 0;
+                    xmlpath = value;
+                    NotifyPropertyChanged("XMLPath");
+                    if (FilesInput)
+                    {
+                        connect("localhost", 5400);
+                        NotifyPropertyChanged("FilesInput");
+                    }
                 }
             }
         }
@@ -76,13 +98,14 @@ namespace FlightMonitor
             }
         }
 
-        public Boolean IsPathInput
+        public Boolean FilesInput
         {
             get
             {
-                return path != null;
+                return (path != null && xmlpath != null);
             }
         }
+
         //the methods
 
         ITelnetClient telnetClient;
@@ -101,8 +124,8 @@ namespace FlightMonitor
             telnetClient.connect(ip, port);
             this.file = new System.IO.StreamReader(path);
 
-            XElement Xelement = XElement.Load(@"C:\Program Files\FlightGear 2020.3.6\data\Protocol\playback_small.xml");
-            XDocument xDoc = XDocument.Load(@"C:\Program Files\FlightGear 2020.3.6\data\Protocol\playback_small.xml");
+            XElement Xelement = XElement.Load(xmlpath);
+            XDocument xDoc = XDocument.Load(xmlpath);
             IEnumerable<XElement> query = Xelement.Descendants("output").Descendants("name");
             List<string> names = new List<string>();
             foreach (var name in query)
@@ -117,6 +140,7 @@ namespace FlightMonitor
                 timeS.AddRow(line);
             }
             NotifyPropertyChanged("LengthCSV");
+            NotifyPropertyChanged("IsXMLInput");
             start();
         }
         public void disconnect()

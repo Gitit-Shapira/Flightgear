@@ -34,5 +34,16 @@ namespace FlightMonitor
             }
 
         }
+
+        public string VM_XML
+        {
+            get { return model.XMLPath; }
+            set
+            {
+                model.XMLPath = value;
+                NotifyPropertyChanged("XMLPath");
+            }
+
+        }
     }
 }
