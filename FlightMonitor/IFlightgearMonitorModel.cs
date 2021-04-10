@@ -16,5 +16,12 @@ namespace FlightMonitor
         int LengthCSV { get; }
         string Path { get; set; }
         Boolean IsPathInput { get; }
+        double Rudder { get; set; }
+        double Aileron { get; set; }
+        double Elevator { get; set; }
+        double Throttle { get; set; }
+        double Y{ get; set; }
+        double X{ get; set; }
+
     }
 }

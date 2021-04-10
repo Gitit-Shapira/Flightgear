@@ -15,6 +15,7 @@ namespace FlightMonitor
         private volatile int lineCSV;
         private int speed;
         string path;
+        private double x, y, aileron, elevator, rudder, throttle;
 
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
@@ -66,6 +67,7 @@ namespace FlightMonitor
             }
         }
 
+
         public int LengthCSV
         {
             get
@@ -83,6 +85,81 @@ namespace FlightMonitor
                 return path != null;
             }
         }
+
+        public double Rudder
+        {
+            get
+            {
+                return rudder;
+            }
+            set
+            {
+                this.rudder = value;
+                NotifyPropertyChanged("Rudder");
+            }
+        }
+        public double Aileron
+        {
+            get
+            {
+                return aileron;
+            }
+            set
+            {
+                this.aileron = value;
+                NotifyPropertyChanged("Aileron");
+            }
+        }
+        public double Elevator
+        {
+            get
+            {
+                return elevator;
+            }
+            set
+            {
+                this.elevator = value;
+                NotifyPropertyChanged("Elevator");
+            }
+        }
+        public double Throttle
+        {
+            get
+            {
+                return throttle;
+            }
+            set
+            {
+                this.throttle = value;
+                NotifyPropertyChanged("Throttle");
+            }
+        }
+
+        public double X
+        {
+            get { return x; }
+            set
+            {
+                this.x = value;
+                NotifyPropertyChanged("X");
+            }
+        } 
+        public double Y
+        {
+            get { return y; }
+            set
+            {
+                this.y = value;
+                NotifyPropertyChanged("Y");
+            }
+        }
+
+        public static int ConvertRange(int value) 
+        {
+            double scale = 45;
+            return (int)(80 + ((value + 1) * scale));
+        }
+
         //the methods
 
         ITelnetClient telnetClient;
@@ -145,6 +222,7 @@ namespace FlightMonitor
                 {
                     //Debug.WriteLine(lineCSV);
                     telnetClient.write(string.Join(",", timeS.GetRow(lineCSV).ToArray()));
+                    update_data();
                     LineCSV++;
                     Thread.Sleep(1000 / this.speed);
                 }
@@ -154,6 +232,18 @@ namespace FlightMonitor
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
+
+        public void update_data()
+        { 
+            Rudder = Convert.ToDouble(timeS.FindValue("rudder", lineCSV));
+            Throttle = Convert.ToDouble(timeS.FindValue("throttle", lineCSV));
+            Aileron = Convert.ToDouble(timeS.FindValue("aileron", lineCSV));
+            Elevator = Convert.ToDouble(timeS.FindValue("elevator", lineCSV));
+            X = (Aileron * 90);
+            Y = (Elevator * 90);
+            //ConvertRange(lineCSV);
+
         }
     }
 }

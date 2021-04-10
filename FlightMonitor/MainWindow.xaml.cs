@@ -16,6 +16,7 @@ namespace FlightMonitor
             main_window.Show();
             model = new MyFlightgearMonitorModel(new MyTelnetClient());
             ControlBar1.HookVM(model);
+            Joystick1.HookVM(model);
             vm = new MainWindowViewModel(model);
         }
 
@@ -35,5 +36,11 @@ namespace FlightMonitor
         {
 
         }
+
+        private void Joystick_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

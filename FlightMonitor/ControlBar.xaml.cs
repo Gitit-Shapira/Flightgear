@@ -50,7 +50,7 @@ namespace FlightMonitor
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            
         }
 
     }
