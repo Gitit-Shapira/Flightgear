@@ -35,5 +35,7 @@ namespace FlightMonitor
         double X { get; set; }
         string Selection { set; }
         List<DataPoint> SelFeatDataPoints { get; }
+        List<DataPoint> CorFeatDataPoints { get; set; }
+        string CorFeat { get; set; }
     }
 }

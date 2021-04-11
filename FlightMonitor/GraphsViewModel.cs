@@ -57,6 +57,22 @@ namespace FlightMonitor
                 return model.SelFeatDataPoints;
             }
         }
+
+        public string VM_CorFeat
+        {
+            get
+            {
+                return model.CorFeat;
+            }
+        }
+
+        public List<DataPoint> VM_CorFeatDataPoints
+        {
+            get
+            {
+                return model.CorFeatDataPoints;
+            }
+        }
     }
 }
 

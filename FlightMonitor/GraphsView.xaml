@@ -30,6 +30,10 @@
                 <oxy:LineSeries ItemsSource="{Binding VM_SelFeatDataPoints}"/>
             </oxy:Plot.Series>
         </oxy:Plot>
-
+        <oxy:Plot Grid.Row="2" Grid.Column="1"  Title="{Binding VM_CorFeat}" TitleFontSize="10" Background="Pink">
+            <oxy:Plot.Series>
+                <oxy:LineSeries ItemsSource="{Binding VM_CorFeatDataPoints}"/>
+            </oxy:Plot.Series>
+        </oxy:Plot>
     </Grid>
 </UserControl>

@@ -21,8 +21,8 @@ namespace FlightMonitor
         private double x, y, aileron, elevator, rudder, throttle;
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
-        string selection;
-        List<DataPoint> selFeatDataPoints;
+        string selection,corFeat;
+        List<DataPoint> selFeatDataPoints,corFeatDataPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
 
@@ -289,6 +289,35 @@ namespace FlightMonitor
                 return new List<DataPoint>();
             }
         }
+
+        
+
+        public List<DataPoint> CorFeatDataPoints
+        {
+            get
+            {
+                return corFeatDataPoints;
+            }
+            set
+            {
+                corFeatDataPoints = value;
+                //Debug.Write("update");
+                NotifyPropertyChanged("CorFeatDataPoints");
+            }
+        }
+        public string CorFeat
+        {
+            get
+            {
+                return corFeat;
+            }
+            set
+            {
+                corFeat = value;
+                NotifyPropertyChanged("CorFeat");
+            }
+        }
+
         //the methods
         //constractor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
@@ -357,9 +386,8 @@ namespace FlightMonitor
                     Yaw = timeS.FindValue("side-slip-deg", LineCSV);
                     if(selFeatDataPoints != null)
                     {
-                        SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
-                     //   selFeatDataPoints.Add(new DataPoint(LineCSV, timeS.FindValue(selection, LineCSV)));
-                        //SelFeatDataPoints = selFeatDataPoints;
+                       Thread thr =new Thread( ()=> SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
+                        thr.Start();
                     }
                     update_data();
                     LineCSV++;
