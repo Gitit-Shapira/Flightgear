@@ -4,19 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightMonitor"
-             mc:Ignorable="d" Height="456" Width="649">
-    <Grid Margin="0,0,177.333,0" Height="446" VerticalAlignment="Top">
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="altitude-ft" VerticalAlignment="Bottom" Margin="84,0,0,355" Height="31" Width="99" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.483,0.435"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="airspeed-kt" VerticalAlignment="Top" Height="31" Width="110" Margin="232,64,0,0" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="376,64,0,0" TextWrapping="Wrap" Text="Heading" VerticalAlignment="Top" Height="40" Width="84" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="101,178,0,0" TextWrapping="Wrap" Text="Yaw" VerticalAlignment="Top" Height="36" Width="53" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="252,178,0,0" TextWrapping="Wrap" Text="Roll" VerticalAlignment="Top" Height="30" Width="47" FontSize="20" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="385,178,0,0" TextWrapping="Wrap" Text="Pitch" VerticalAlignment="Top" Height="36" Width="75" FontSize="20" FontWeight="Bold"/>
-        <Label Content="{Binding VM_Altitude_ft}" HorizontalAlignment="Left" Margin="70,100,0,0" VerticalAlignment="Top" Width="113" Height="51" FontSize="15" FontWeight="Bold"/>
-        <Label Content="{Binding VM_Airspeed_kt}" HorizontalAlignment="Left" Margin="222,100,0,0" VerticalAlignment="Top" Height="47" Width="120" FontSize="15" FontWeight="Bold"/>
-        <Label Content="{Binding VM_Heading}" HorizontalAlignment="Left" Margin="376,100,0,0" VerticalAlignment="Top" Height="51" Width="97" FontSize="15" FontWeight="Bold"/>
-        <Label Content="{Binding VM_Yaw}" HorizontalAlignment="Left" Margin="84,214,0,0" VerticalAlignment="Top" Height="53" Width="103" FontSize="15" FontWeight="Bold"/>
-        <Label Content="{Binding VM_Roll}" HorizontalAlignment="Left" Margin="232,214,0,0" VerticalAlignment="Top" Height="53" Width="114" FontSize="15" FontWeight="Bold"/>
-        <Label Content="{Binding VM_Pitch}" HorizontalAlignment="Left" Margin="376,219,0,0" VerticalAlignment="Top" Height="53" Width="88" FontSize="15" FontWeight="Bold"/>
+             mc:Ignorable="d" Height="140" Width="250">
+    <Grid  ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+            
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0"
+                    Text="altitude-ft"  Height="31" Width="99" FontSize="20" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="0"
+            Text="airspeed-kt"  Height="31" Width="110"  FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Row="2" Grid.Column="0"
+            Text="Heading"  Height="40" Width="84" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Row="3" Grid.Column="0"
+            Text="Yaw"  Height="36" Width="53" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Row="4" Grid.Column="0"
+            Text="Roll" Height="30" Width="47" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Row="5" Grid.Column="0"
+            Text="Pitch" VerticalAlignment="Top" Height="36" Width="75" FontSize="20" FontWeight="Bold"/>
+        <Label Content="{Binding VM_Altitude_ft}" Grid.Row="0" Grid.Column="1" 
+               Width="113" Height="51" FontSize="15" FontWeight="Bold"/>
+        <Label Content="{Binding VM_Airspeed_kt}" Grid.Row="1" Grid.Column="1" 
+               Height="47" Width="120" FontSize="15" FontWeight="Bold"/>
+        <Label Content="{Binding VM_Heading}" Grid.Row="2" Grid.Column="1"
+               Height="51" Width="97" FontSize="15" FontWeight="Bold"/>
+        <Label Content="{Binding VM_Yaw}" Grid.Row="3" Grid.Column="1"
+               Height="53" Width="103" FontSize="15" FontWeight="Bold"/>
+        <Label Content="{Binding VM_Roll}" Grid.Row="4" Grid.Column="1"
+               Height="53" Width="114" FontSize="15" FontWeight="Bold"/>
+        <Label Content="{Binding VM_Pitch}" Grid.Row="5" Grid.Column="1"
+               Height="53" Width="88" FontSize="15" FontWeight="Bold"/>
     </Grid>
 </UserControl>

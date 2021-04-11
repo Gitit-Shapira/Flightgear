@@ -49,3 +49,5 @@ C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.bam
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CopyComplete
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightDetails.g.cs
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightDetails.baml
+C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\FlightDetails.g.cs
+C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\FlightDetails.baml
