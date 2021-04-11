@@ -19,6 +19,13 @@ namespace FlightMonitor
         int LengthCSV { get; }
         string XMLPath { get; set; }
         string Path { get; set; }
+        Boolean IsPathInput { get; }
+        float Altitude_ft { get; }
+        float Airspeed_kt { get; }
+        float Heading { get; }
+        float Pitch { get; }
+        float Roll { get; }
+        float Yaw { get; }
         Boolean FilesInput { get; }
         List<string> ColumnNames { get; }
     }
