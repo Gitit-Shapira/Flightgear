@@ -22,7 +22,6 @@ namespace FlightMonitor
     public partial class ControlBar : UserControl
     {
         private FlightgearMonitorViewModel VM;
-        private int playSpeed = 20;
         public ControlBar()
         {
             InitializeComponent();
@@ -54,54 +53,5 @@ namespace FlightMonitor
 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Selected_0_25(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 0.25);
-        }
-
-        private void Selected_0_5(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 0.5);
-        }
-
-        private void Selected_0_75(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int) (playSpeed * 0.75);
-        }
-
-        private void Selected_1_0(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 1.0);
-        }
-
-        private void Selected_1_25(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 1.25);
-        }
-
-        private void Selected_1_5(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 1.5);
-        }
-
-        private void Selected_1_75(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 1.75);
-        }
-
-        private void Selected_2_0(object sender, RoutedEventArgs e)
-        {
-            VM.VM_Speed = (int)(playSpeed * 2.0);
-        }
     }
 }

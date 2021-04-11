@@ -27,20 +27,7 @@
                 </StackPanel>
             </Button>
 
-           <Slider IsEnabled="{Binding VM_FilesInput}" Value="{Binding VM_LineCSV}" Minimum="0" Maximum="{Binding VM_LengthCSV}" HorizontalAlignment="Left" Margin="15,50,0,0" Name="slider_seek" VerticalAlignment="Top" Width="770" ValueChanged="Slider_ValueChanged" Grid.ColumnSpan="4" Background="WhiteSmoke"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Play Speed" VerticalAlignment="Top" Height="24" Margin="378,15,0,0" RenderTransformOrigin="-0.357,0.525" FontWeight="Bold" FontSize="15" Width="80"/>
-            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="67" Margin="463,15,0,0" SelectionChanged="ComboBox_SelectionChanged" >
-                <ComboBoxItem Selected="Selected_0_25">0.25</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_0_5" >0.5</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_0_75" >0.75</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_1_0" >1.0</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_1_25" >1.25</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_1_5" >1.5</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_1_75" >1.75</ComboBoxItem>
-                <ComboBoxItem Selected="Selected_2_0" >2.0</ComboBoxItem>
-            </ComboBox>
-
-            
+            <Slider IsEnabled="{Binding VM_FilesInput}" Value="{Binding VM_LineCSV}" Minimum="0" Maximum="{Binding VM_LengthCSV}" HorizontalAlignment="Left" Margin="15,50,0,0" Name="slider_seek" VerticalAlignment="Top" Width="770" ValueChanged="Slider_ValueChanged" Grid.ColumnSpan="4" Background="WhiteSmoke"/>
         </Grid>
     </Viewbox>
 </UserControl>

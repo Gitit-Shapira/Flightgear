@@ -4,26 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\
 FlightMonitor
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\App.xaml
 3462914363
 
 15105652328
 17-829584498
 ControlBar.xaml;GraphsView.xaml;MainWindow.xaml;
-=======
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\App.xaml
-3-775127465
-
-15-2023307985
-1333637626
-ControlBar.xaml;FlightDetails.xaml;MainWindow.xaml;
->>>>>>> main
 
 False
 

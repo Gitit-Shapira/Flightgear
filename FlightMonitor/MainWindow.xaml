@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightMonitor"
-        xmlns:data="clr-namespace:FlightMonitor" 
         xmlns:con="clr-namespace:FlightMonitor" xmlns:win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" AllowDrop="True" >
@@ -20,7 +19,6 @@
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <data:FlightDetails x:Name="FlightDetails1" Grid.Column="2" Margin="299.333,-41,-175,282" RenderTransformOrigin="0.223,0.334" Loaded="FlightDetails1_Loaded" />
 
         <con:ControlBar x:Name="ControlBar1" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" />
         <con:GraphsView x:Name="GraphsView1" Grid.Column="1"

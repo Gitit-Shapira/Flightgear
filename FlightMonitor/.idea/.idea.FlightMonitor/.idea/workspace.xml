@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed7367a8-046f-463e-b7e0-c73442238226" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FlightMonitor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/slnx.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/FlightMonitor/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/FlightMonitor/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightMonitor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FlightMonitor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyFlightgearMonitorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MyFlightgearMonitorModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/FlightMonitor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/FlightMonitor.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.g.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/FlightMonitor.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FlightMonitor.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,26 +23,22 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="Dvir" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="6883e222-21f6-42bf-8a4e-564aa94ef949" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/MainWindow.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/obj/Release/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/ControlBar.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/obj/Debug/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Dvir/RiderProjects/Flightgear-DVIR/FlightMonitor/MainWindow.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Debug/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obj/Release/ControlBar.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/FlightDataViewModel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -49,75 +46,20 @@
       <option value="$PROJECT_DIR$/MainWindow.xaml" />
       <option value="$PROJECT_DIR$/MainWindow.xaml.cs" />
       <option value="$PROJECT_DIR$/ControlBar.xaml.cs" />
-      <option value="$PROJECT_DIR$/.gitignore" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qnjTjX3aZyctprifxAupQX5PwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RunManager" selected="UWP.Unnamed">
-    <configuration name="Unnamed" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/FlightMonitor.exe" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Debug" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="USE_MONO" value="0" />
-      <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/FlightMonitor.csproj" />
-      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
-      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
-      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="Console" />
-      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
-      <method v="2">
-        <option name="Build" />
-      </method>
-    </configuration>
-    <configuration default="true" type="DotNetStaticMethod" factoryName=".NET Static Method">
-      <option name="EXE_PATH" value="C:\Program Files\JetBrains\JetBrains Rider 2020.3.4\lib\ReSharperHost\JetLauncherILc.exe" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Debug" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="USE_MONO" value="0" />
-      <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="PROJECT_PATH" value="$PROJECT_DIR$/FlightMonitor.csproj" />
-      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <method v="2">
-        <option name="Build" />
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="UwpProject" factoryName="UWP">
-      <option name="PROJECT_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <method v="2">
-        <option name="Build" default="false" projectName="FlightMonitor" projectPath="C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\FlightMonitor.csproj" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Publish to folder.Unnamed" />
-      <item itemvalue="UWP.Unnamed" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -149,16 +91,6 @@
       <option name="project" value="LOCAL" />
       <updated>1617723097031</updated>
     </task>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="ed7367a8-046f-463e-b7e0-c73442238226" name="Default Changelist" comment="" />
-      <created>1617825194346</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1617825194346</updated>
-      <workItem from="1617825199281" duration="73000" />
-      <workItem from="1617964489348" duration="76000" />
-      <workItem from="1617964641455" duration="737000" />
-    </task>
     <option name="localTasksCounter" value="5" />
     <servers />
   </component>
@@ -178,7 +110,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="new-imgs-btn" />
                       </list>
                     </value>
                   </entry>

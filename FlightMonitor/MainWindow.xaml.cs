@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Windows;
 using Microsoft.Win32;
 namespace FlightMonitor
@@ -19,12 +18,6 @@ namespace FlightMonitor
             ControlBar1.HookVM(model);
             GraphsView1.HookVM(model);
             vm = new MainWindowViewModel(model);
-            this.FlightDetails1.HookVM(model);
-        }
-
-        private object FlightgearMonitorViewModel(IFlightgearMonitorModel model)
-        {
-            throw new NotImplementedException();
         }
 
         private void Fly_default_click(object sender, RoutedEventArgs e)
@@ -51,11 +44,6 @@ namespace FlightMonitor
                 Debug.WriteLine(openFileDialog.FileName);
                 vm.VM_XML = openFileDialog.FileName;
             }
-        }
-
-        private void FlightDetails1_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

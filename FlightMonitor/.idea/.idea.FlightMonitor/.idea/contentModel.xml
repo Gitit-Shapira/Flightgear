@@ -10,9 +10,6 @@
       <e p="bin" t="ExcludeRecursive" />
       <e p="ControlBar.xaml" t="Include" />
       <e p="ControlBar.xaml.cs" t="Include" />
-      <e p="FlightDataViewModel.cs" t="Include" />
-      <e p="FlightDetails.xaml" t="Include" />
-      <e p="FlightDetails.xaml.cs" t="Include" />
       <e p="FlightgearMonitorViewModel.cs" t="Include" />
       <e p="FlightMonitor.csproj" t="IncludeRecursive" />
       <e p="FlightMonitor.sln" t="IncludeFlat" />
@@ -20,12 +17,17 @@
       <e p="ITelnetClient.cs" t="Include" />
       <e p="MainWindow.xaml" t="Include" />
       <e p="MainWindow.xaml.cs" t="Include" />
-      <e p="MainWindowViewModel.cs" t="Include" />
       <e p="MyFlightgearMonitorModel.cs" t="Include" />
       <e p="MyTelnetClient.cs" t="Include" />
-      <e p="obj" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="App.g.cs" t="Include" />
+          <e p="ControlBar.g.cs" t="Include" />
+          <e p="GeneratedInternalTypeHelper.g.cs" t="Include" />
+          <e p="MainWindow.g.cs" t="Include" />
+        </e>
+      </e>
       <e p="packages" t="ExcludeRecursive" />
-      <e p="packages.config" t="Include" />
       <e p="Pause_image.jpg" t="Include" />
       <e p="Play_Button.jpg" t="Include" />
       <e p="Properties" t="Include">

@@ -34,7 +34,6 @@ C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CoreCompileInputs.cache
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.exe
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.pdb
-<<<<<<< HEAD
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\GraphsView.g.cs
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\GraphsView.baml
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\bin\Debug\OxyPlot.dll
@@ -49,25 +48,3 @@ C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\OxyPlot.Wpf.xm
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.g.cs
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.baml
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CopyComplete
-=======
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\bin\Debug\FlightMonitor.exe.config
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\bin\Debug\FlightMonitor.exe
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\bin\Debug\FlightMonitor.pdb
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.csprojAssemblyReference.cache
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\ControlBar.g.cs
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightDetails.g.cs
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\MainWindow.g.cs
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\App.g.cs
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor_MarkupCompile.cache
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor_MarkupCompile.lref
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\ControlBar.baml
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightDetails.baml
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\MainWindow.baml
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.g.resources
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.Properties.Resources.resources
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.csproj.GenerateResource.cache
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.csproj.CoreCompileInputs.cache
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.exe
-C:\Users\Dvir\RiderProjects\Flightgear-DVIR\FlightMonitor\obj\Debug\FlightMonitor.pdb
->>>>>>> main
