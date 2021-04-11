@@ -18,6 +18,7 @@ namespace FlightMonitor
             ControlBar1.HookVM(model);
             GraphsView1.HookVM(model);
             FlightDetails1.HookVM(model);
+            Joystick1.HookVM(model);
             vm = new MainWindowViewModel(model);
         }
 

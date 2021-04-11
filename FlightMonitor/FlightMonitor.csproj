@@ -67,6 +67,9 @@
     <Compile Include="GraphsView.xaml.cs">
       <DependentUpon>GraphsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Joystick.xaml.cs">
+      <DependentUpon>Joystick.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="TimeSeries.cs" />
     <Compile Include="TimeSeriesUtil.cs" />
@@ -78,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GraphsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Joystick.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

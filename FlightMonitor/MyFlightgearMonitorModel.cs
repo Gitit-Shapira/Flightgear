@@ -16,6 +16,7 @@ namespace FlightMonitor
         private int speed;
         string path;
         string xmlpath;
+        private double x, y, aileron, elevator, rudder, throttle;
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -116,6 +117,80 @@ namespace FlightMonitor
             }
         }
 
+        public double Rudder
+        {
+            get
+            {
+                return rudder;
+            }
+            set
+            {
+                this.rudder = value;
+                NotifyPropertyChanged("Rudder");
+            }
+        }
+        public double Aileron
+        {
+            get
+            {
+                return aileron;
+            }
+            set
+            {
+                this.aileron = value;
+                NotifyPropertyChanged("Aileron");
+            }
+        }
+        public double Elevator
+        {
+            get
+            {
+                return elevator;
+            }
+            set
+            {
+                this.elevator = value;
+                NotifyPropertyChanged("Elevator");
+            }
+        }
+        public double Throttle
+        {
+            get
+            {
+                return throttle;
+            }
+            set
+            {
+                this.throttle = value;
+                NotifyPropertyChanged("Throttle");
+            }
+        }
+
+        public double X
+        {
+            get { return x; }
+            set
+            {
+                this.x = value;
+                NotifyPropertyChanged("X");
+            }
+        }
+        public double Y
+        {
+            get { return y; }
+            set
+            {
+                this.y = value;
+                NotifyPropertyChanged("Y");
+            }
+        }
+
+        public static int ConvertRange(int value)
+        {
+            double scale = 45;
+            return (int)(80 + ((value + 1) * scale));
+        }
+
         //the methods
 
         ITelnetClient telnetClient;
@@ -186,11 +261,25 @@ namespace FlightMonitor
                     Pitch = timeS.FindValue("pitch-deg", LineCSV);
                     Roll = timeS.FindValue("roll-deg", LineCSV);
                     Yaw = timeS.FindValue("side-slip-deg", LineCSV);
+                    update_data();
                     LineCSV++;
                     Thread.Sleep(1000 / this.speed);
                 }
             }
         }
+
+        public void update_data()
+        {
+            Rudder = Convert.ToDouble(timeS.FindValue("rudder", lineCSV));
+            Throttle = Convert.ToDouble(timeS.FindValue("throttle", lineCSV));
+            Aileron = Convert.ToDouble(timeS.FindValue("aileron", lineCSV));
+            Elevator = Convert.ToDouble(timeS.FindValue("elevator", lineCSV));
+            X = (Aileron * 90);
+            Y = (Elevator * 90);
+            //ConvertRange(lineCSV);
+
+        }
+
         private float altitude_ft;
 
         public float Altitude_ft

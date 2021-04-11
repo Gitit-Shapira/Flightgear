@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\App.xaml
-41006662339
+51529352021
 
-181621257987
+19-661231594
 17-829584498
-ControlBar.xaml;GraphsView.xaml;MainWindow.xaml;FlightDetails.xaml;
+ControlBar.xaml;GraphsView.xaml;Joystick.xaml;MainWindow.xaml;FlightDetails.xaml;
 
-True
+False
 
