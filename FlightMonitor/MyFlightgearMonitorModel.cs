@@ -106,6 +106,16 @@ namespace FlightMonitor
             }
         }
 
+        public List<string> ColumnNames
+        {
+            get
+            {
+                if(timeS != null)
+                    return timeS.GetColumnNames();
+                return new List<string>();
+            }
+        }
+
         //the methods
 
         ITelnetClient telnetClient;
@@ -141,6 +151,7 @@ namespace FlightMonitor
             }
             NotifyPropertyChanged("LengthCSV");
             NotifyPropertyChanged("IsXMLInput");
+            NotifyPropertyChanged("ColumnNames");
             start();
         }
         public void disconnect()
@@ -175,10 +186,6 @@ namespace FlightMonitor
             }
         }
 
-        public List<string> ColumnNames()
-        {
-            return timeS.GetColumnNames();
-        }
 
         public void NotifyPropertyChanged(string propName)
         {

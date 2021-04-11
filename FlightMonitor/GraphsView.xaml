@@ -20,7 +20,9 @@
         
         <StackPanel Grid.Row="2"
                       Grid.Column="0">
-            <ComboBox x:Name="comboBox"/>
+            <ComboBox x:Name="comboBox"
+                      IsEnabled="{Binding VM_FilesInput}"
+                      ItemsSource="{Binding VM_ColumnNames}"/>
         </StackPanel>
 
     </Grid>

@@ -57,6 +57,15 @@ namespace FlightMonitor
                 return model.FilesInput;
             }
         }
+
+        public List<string> VM_ColumnNames
+        {
+            get
+            {
+                return model.ColumnNames;
+            }
+        }
+
         public void Play()
         {
             if (model.Stop)
@@ -76,11 +85,6 @@ namespace FlightMonitor
             model.Stop = true;
             model.LineCSV = 0;
             //Atom
-        }
-
-        public List<string> ColumnNames()
-        {
-            return model.ColumnNames();
         }
     }
 }

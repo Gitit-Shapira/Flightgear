@@ -33,14 +33,6 @@ namespace FlightMonitor
             VM = new FlightgearMonitorViewModel(model);
             DataContext = VM;
         }
-        private void ComboBox(object sender, RoutedEventArgs e)
-        {
-            foreach (string s in VM.ColumnNames())
-            {
-                ComboBoxItem newItem = new ComboBoxItem();
-                newItem.Content = s;
-                comboBox.Items.Add(newItem);
-            }
-        }
+       
     }
 }

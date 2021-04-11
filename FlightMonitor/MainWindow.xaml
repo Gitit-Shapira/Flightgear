@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <con:ControlBar x:Name="ControlBar1" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" />
-        <con:GraphsView x:Name="GraphsView" Grid.Column="1"
+        <con:GraphsView x:Name="GraphsView1" Grid.Column="1"
                         Grid.Row="2" />
         <Button Grid.Row="0" Grid.Column="0" 
                 Content="Open CSV" Click ="Fly_default_click"  />

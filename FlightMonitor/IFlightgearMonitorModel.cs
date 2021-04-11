@@ -10,7 +10,7 @@ namespace FlightMonitor
         void disconnect();
         void start();
 
-        List<string> ColumnNames();
+       
 
         //properties
         int LineCSV { get; set; }
@@ -20,5 +20,6 @@ namespace FlightMonitor
         string XMLPath { get; set; }
         string Path { get; set; }
         Boolean FilesInput { get; }
+        List<string> ColumnNames { get; }
     }
 }
