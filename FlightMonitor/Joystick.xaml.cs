@@ -20,25 +20,15 @@ namespace FlightMonitor
     /// </summary>
     public partial class Joystick : UserControl
     {
-        private FlightgearMonitorViewModel VM;
+        private JoystickViewModel VM;
         public Joystick()
         {
             InitializeComponent();
         }
         public void HookVM(IFlightgearMonitorModel model)
         {
-            VM = new FlightgearMonitorViewModel(model);
+            VM = new JoystickViewModel(model);
             DataContext = VM;
-        }
-
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-
-        private void Rudder_slider(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

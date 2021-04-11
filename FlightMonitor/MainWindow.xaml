@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightMonitor"
-        xmlns:con="clr-namespace:FlightMonitor" xmlns:win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework"
+        xmlns:con="clr-namespace:FlightMonitor" xmlns:win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework" xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" AllowDrop="True" >
     <Grid ShowGridLines="True">
@@ -30,5 +30,10 @@
                 Content="Open CSV" Click ="Fly_default_click" />
         <Button Grid.Row="1" Grid.Column="0" 
                 Content="Open XML" Click ="Load_xml" />
+        <oxy:Plot Grid.Row="3" Grid.Column="1"  Title="Plot" TitleFontSize="10" Background="Pink">
+            <oxy:Plot.Series>
+                <oxy:LineSeries ItemsSource="{Binding VM_Peleg_Is_A_Fraud}"/>
+            </oxy:Plot.Series>
+        </oxy:Plot>
     </Grid>
 </Window>

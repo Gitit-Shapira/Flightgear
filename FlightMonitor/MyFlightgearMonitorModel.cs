@@ -185,11 +185,11 @@ namespace FlightMonitor
             }
         }
 
-        public static int ConvertRange(int value)
+        /*public static int ConvertRange(int value)
         {
             double scale = 45;
             return (int)(80 + ((value + 1) * scale));
-        }
+        }*/
 
         //the methods
 

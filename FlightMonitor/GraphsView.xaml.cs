@@ -21,7 +21,7 @@ namespace FlightMonitor
     public partial class GraphsView : UserControl
     {
 
-        private FlightgearMonitorViewModel VM;
+        private GraphsViewModel VM;
         public GraphsView()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace FlightMonitor
 
         public void HookVM(IFlightgearMonitorModel model)
         {
-            VM = new FlightgearMonitorViewModel(model);
+            VM = new GraphsViewModel(model);
             DataContext = VM;
         }
        

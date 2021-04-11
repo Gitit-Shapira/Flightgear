@@ -47,5 +47,6 @@ namespace FlightMonitor
                 vm.VM_XML = openFileDialog.FileName;
             }
         }
+
     }
 }
