@@ -41,3 +41,10 @@ C:\Users\Public\Gitit\Flightgear\FlightMonitor\bin\Debug\OxyPlot.Wpf.dll
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\bin\Debug\OxyPlot.xml
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\bin\Debug\OxyPlot.Wpf.xml
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CopyComplete
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\OxyPlot.dll
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\OxyPlot.xml
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.g.cs
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.baml
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CopyComplete
