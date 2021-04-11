@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OxyPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 namespace FlightMonitor
@@ -10,7 +11,6 @@ namespace FlightMonitor
         void disconnect();
         void start();
 
-       
 
         //properties
         int LineCSV { get; set; }
@@ -33,5 +33,7 @@ namespace FlightMonitor
         double Throttle { get; set; }
         double Y { get; set; }
         double X { get; set; }
+        string Selection { set; }
+        List<DataPoint> SelFeatDataPoints { get; }
     }
 }

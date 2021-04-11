@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OxyPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -39,6 +40,21 @@ namespace FlightMonitor
             get
             {
                 return model.ColumnNames;
+            }
+        }
+
+        public string VM_Selection
+        {
+            set
+            {
+                model.Selection = value;
+            }
+        }
+        public List<DataPoint> VM_SelFeatDataPoints
+        {
+            get
+            {
+                return model.SelFeatDataPoints;
             }
         }
     }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FlightMonitor"
+             xmlns:local="clr-namespace:FlightMonitor" xmlns:oxy="http://oxyplot.org/wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid ShowGridLines="True">
@@ -18,12 +18,18 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         
-        <StackPanel Grid.Row="2"
+        <StackPanel Grid.Row="1"
                       Grid.Column="0">
             <ComboBox x:Name="comboBox"
                       IsEnabled="{Binding VM_FilesInput}"
-                      ItemsSource="{Binding VM_ColumnNames}"/>
+                      ItemsSource="{Binding VM_ColumnNames}"
+                      SelectedValue="{Binding VM_Selection}"/>
         </StackPanel>
+        <oxy:Plot Grid.Row="2" Grid.Column="0"  Title="{Binding ElementName=comboBox, Path=SelectedItem}" TitleFontSize="10" Background="Pink">
+            <oxy:Plot.Series>
+                <oxy:LineSeries ItemsSource="{Binding VM_SelFeatDataPoints}"/>
+            </oxy:Plot.Series>
+        </oxy:Plot>
 
     </Grid>
 </UserControl>

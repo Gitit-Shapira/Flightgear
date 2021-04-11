@@ -1,6 +1,8 @@
-﻿using System;
+﻿using OxyPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading;
 using System.Xml.Linq;
 
@@ -19,8 +21,13 @@ namespace FlightMonitor
         private double x, y, aileron, elevator, rudder, throttle;
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
+        string selection;
+        List<DataPoint> selFeatDataPoints;
+        ITelnetClient telnetClient;
+        volatile Boolean stop;
 
         // the properties implementation
+
         public int LineCSV
         {
             get { return lineCSV; }
@@ -111,7 +118,7 @@ namespace FlightMonitor
         {
             get
             {
-                if(timeS != null)
+                if (timeS != null)
                     return timeS.GetColumnNames();
                 return new List<string>();
             }
@@ -185,17 +192,104 @@ namespace FlightMonitor
             }
         }
 
-        /*public static int ConvertRange(int value)
+        private float altitude_ft;
+
+        public float Altitude_ft
         {
-            double scale = 45;
-            return (int)(80 + ((value + 1) * scale));
-        }*/
+            get { return altitude_ft; }
+            set
+            {
+                altitude_ft = value;
+                NotifyPropertyChanged("Altitude_ft");
+            }
+        }
 
+        private float airspeed_kt;
+
+        public float Airspeed_kt
+        {
+            get { return airspeed_kt; }
+            set
+            {
+                airspeed_kt = value;
+                NotifyPropertyChanged("Airspeed_kt");
+            }
+        }
+
+
+        private float heading;
+
+        public float Heading
+        {
+            get { return heading; }
+            set
+            {
+                heading = value;
+                NotifyPropertyChanged("Heading");
+            }
+        }
+
+        private float pitch;
+
+        public float Pitch
+        {
+            get { return pitch; }
+            set
+            {
+                pitch = value;
+                NotifyPropertyChanged("Pitch");
+            }
+        }
+
+        private float roll;
+
+        public float Roll
+        {
+            get { return roll; }
+            set
+            {
+                roll = value;
+                NotifyPropertyChanged("Roll");
+            }
+        }
+
+        private float yaw;
+
+        public float Yaw
+        {
+            get { return yaw; }
+            set
+            {
+                yaw = value;
+                NotifyPropertyChanged("Yaw");
+            }
+        }
+
+        public string Selection
+        {
+            set
+            {
+                selection = value;
+                SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
+            }
+        }
+    
+        public List<DataPoint> SelFeatDataPoints
+        {
+            set
+            {
+                selFeatDataPoints = value;
+                //Debug.Write("update");
+                NotifyPropertyChanged("SelFeatDataPoints");
+            }
+            get
+            {
+                if (selFeatDataPoints != null)
+                    return selFeatDataPoints;
+                return new List<DataPoint>();
+            }
+        }
         //the methods
-
-        ITelnetClient telnetClient;
-        volatile Boolean stop;
-
         //constractor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
         {
@@ -249,7 +343,7 @@ namespace FlightMonitor
 
                 if (lineCSV >= timeS.NumOfRows)
                 {
-                    this.stop = true;
+                    stop = true;
                 }
                 else
                 {
@@ -261,6 +355,12 @@ namespace FlightMonitor
                     Pitch = timeS.FindValue("pitch-deg", LineCSV);
                     Roll = timeS.FindValue("roll-deg", LineCSV);
                     Yaw = timeS.FindValue("side-slip-deg", LineCSV);
+                    if(selFeatDataPoints != null)
+                    {
+                        SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
+                     //   selFeatDataPoints.Add(new DataPoint(LineCSV, timeS.FindValue(selection, LineCSV)));
+                        //SelFeatDataPoints = selFeatDataPoints;
+                    }
                     update_data();
                     LineCSV++;
                     Thread.Sleep(1000 / this.speed);
@@ -276,106 +376,9 @@ namespace FlightMonitor
             Elevator = Convert.ToDouble(timeS.FindValue("elevator", lineCSV));
             X = (Aileron * 90);
             Y = (Elevator * 90);
-            //ConvertRange(lineCSV);
-
         }
 
-        private float altitude_ft;
-
-        public float Altitude_ft
-        {
-            get { return altitude_ft; }
-            set
-            {
-                altitude_ft = value;
-                NotifyPropertyChanged("Altitude_ft");
-            }
-        }
-
-        private float airspeed_kt;
-
-        public float Airspeed_kt
-        {
-            get { return airspeed_kt; }
-            set
-            {
-                airspeed_kt = value;
-                NotifyPropertyChanged("Airspeed_kt");
-            }
-        }
-
-
-        /*public float Airspeed_kt
-        {
-            get { return timeS.FindValue("airspeed-kt", LineCSV); }
-        }*/
-
-        private float heading;
-
-        public float Heading
-        {
-            get { return heading; }
-            set
-            {
-                heading = value;
-                NotifyPropertyChanged("Heading");
-            }
-        }
-
-
-        /* public float Heading
-         {
-             get { return timeS.FindValue("heading-deg", LineCSV); }
-         }*/
-
-        private float pitch;
-
-        public float Pitch
-        {
-            get { return pitch; }
-            set
-            {
-                pitch = value;
-                NotifyPropertyChanged("Pitch");
-            }
-        }
-
-
-        /* public float Pitch
-         {
-             get { return timeS.FindValue("pitch-deg", LineCSV); }
-         }*/
-
-        private float roll;
-
-        public float Roll
-        {
-            get { return roll; }
-            set
-            {
-                roll = value;
-                NotifyPropertyChanged("Roll");
-            }
-        }
-
-
-        /* public float Roll
-         {
-             get { return timeS.FindValue("roll-deg", LineCSV); }
-         }*/
-
-        private float yaw;
-
-        public float Yaw
-        {
-            get { return yaw; }
-            set
-            {
-                yaw = value;
-                NotifyPropertyChanged("Yaw");
-            }
-        }
-
+       
 
         public void NotifyPropertyChanged(string propName)
         {

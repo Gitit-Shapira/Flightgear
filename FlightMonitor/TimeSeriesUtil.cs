@@ -15,8 +15,5 @@ namespace FlightMonitor
             }
             return l;
         }
-
-        
-
     }
 }
