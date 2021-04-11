@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\
 FlightMonitor
 none
 false
 DEBUG;TRACE
-C:\Users\Public\Gitit\Flightgear\FlightMonitor\App.xaml
-3462914363
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\App.xaml
+41006662339
 
-15-2120910459
-13-1505183044
-ControlBar.xaml;GraphsView.xaml;MainWindow.xaml;
+181621257987
+17-829584498
+ControlBar.xaml;GraphsView.xaml;MainWindow.xaml;FlightDetails.xaml;
 
 True
 

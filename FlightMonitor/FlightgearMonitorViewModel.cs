@@ -86,6 +86,108 @@ namespace FlightMonitor
             model.LineCSV = 0;
             //Atom
         }
+
+        private float altitude_ft;
+
+        public float Altitude_ft
+        {
+            get { return altitude_ft; }
+            set
+            {
+                altitude_ft = value;
+                NotifyPropertyChanged("Altitude_ft");
+            }
+        }
+
+
+        /*   public float Altitude_ft
+           {
+               get { return timeS.FindValue("altimeter_indicated-altitude-ft", LineCSV); }
+           }*/
+
+        private float airspeed_kt;
+
+        public float Airspeed_kt
+        {
+            get { return airspeed_kt; }
+            set
+            {
+                airspeed_kt = value;
+                NotifyPropertyChanged("Airspeed_kt");
+            }
+        }
+
+
+        /*public float Airspeed_kt
+        {
+            get { return timeS.FindValue("airspeed-kt", LineCSV); }
+        }*/
+
+        private float heading;
+
+        public float Heading
+        {
+            get { return heading; }
+            set
+            {
+                heading = value;
+                NotifyPropertyChanged("Heading");
+            }
+        }
+
+
+        /* public float Heading
+         {
+             get { return timeS.FindValue("heading-deg", LineCSV); }
+         }*/
+
+        private float pitch;
+
+        public float Pitch
+        {
+            get { return pitch; }
+            set
+            {
+                pitch = value;
+                NotifyPropertyChanged("Pitch");
+            }
+        }
+
+
+        /* public float Pitch
+         {
+             get { return timeS.FindValue("pitch-deg", LineCSV); }
+         }*/
+
+        private float roll;
+
+        public float Roll
+        {
+            get { return roll; }
+            set
+            {
+                roll = value;
+                NotifyPropertyChanged("Roll");
+            }
+        }
+
+
+        /* public float Roll
+         {
+             get { return timeS.FindValue("roll-deg", LineCSV); }
+         }*/
+
+        private float yaw;
+
+        public float Yaw
+        {
+            get { return yaw; }
+            set
+            {
+                yaw = value;
+                NotifyPropertyChanged("Yaw");
+            }
+        }
     }
 }
 

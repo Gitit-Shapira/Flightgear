@@ -19,7 +19,6 @@ C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.pdb
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\FlightMonitor.exe.config
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\FlightMonitor.exe
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\FlightMonitor.pdb
-C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csprojAssemblyReference.cache
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\ControlBar.g.cs
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\MainWindow.g.cs
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\App.g.cs
@@ -48,3 +47,5 @@ C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\bin\Debug\OxyPlot.Wpf.xm
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.g.cs
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\GraphsView.baml
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csproj.CopyComplete
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightDetails.g.cs
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightDetails.baml

@@ -21,5 +21,11 @@ namespace FlightMonitor
         string Path { get; set; }
         Boolean FilesInput { get; }
         List<string> ColumnNames { get; }
+        float Altitude_ft { get; }
+        float Airspeed_kt { get; }
+        float Heading { get; }
+        float Pitch { get; }
+        float Roll { get; }
+        float Yaw { get; }
     }
 }
