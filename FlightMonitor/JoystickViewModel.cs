@@ -5,25 +5,10 @@ using System.ComponentModel;
 
 namespace FlightMonitor
 {
-    class JoystickViewModel : INotifyPropertyChanged
+    class JoystickViewModel : ViewModel
     {
-        private IFlightgearMonitorModel model;
-        public JoystickViewModel(IFlightgearMonitorModel model)
-        {
-            this.model = model;
-            model.PropertyChanged +=
-            delegate (Object sender, PropertyChangedEventArgs e)
-            {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
-            };
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propName)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        }
 
+        public JoystickViewModel(IFlightgearMonitorModel model) : base(model) { }
         // Properties
         public double VM_Y
         {

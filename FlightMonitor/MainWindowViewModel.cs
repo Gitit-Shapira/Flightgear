@@ -4,25 +4,11 @@ using System.ComponentModel;
 
 namespace FlightMonitor
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : ViewModel
     {
-        private IFlightgearMonitorModel model;
-        public MainWindowViewModel(IFlightgearMonitorModel model)
-        {
-            this.model = model;
-            model.PropertyChanged +=
-            delegate (Object sender, PropertyChangedEventArgs e)
-            {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
-            };
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propName)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        }
 
+        public MainWindowViewModel(IFlightgearMonitorModel model) : base(model) { }
+        
         // Properties
         public string VM_Path
         {
@@ -43,7 +29,6 @@ namespace FlightMonitor
                 model.XMLPath = value;
                 NotifyPropertyChanged("XMLPath");
             }
-
         }
     }
 }
