@@ -6,6 +6,7 @@ namespace FlightMonitor
 {
     class TimeSeriesUtil
     {
+        private TimeSeriesUtil() { }
         static public List<DataPoint> ColumnToDataPoints(List<float> column, int line)
         {
             List<DataPoint> l = new List<DataPoint>();
@@ -52,7 +53,6 @@ namespace FlightMonitor
             double p = COV(c1, c2) / (System.Math.Sqrt(VAR(c1)) * (System.Math.Sqrt(VAR(c2))));
             return (float)p;
         }
-
         static public string MostCorFeatIndex(string feat, TimeSeries ts)
         {
             float maxcor = 0;

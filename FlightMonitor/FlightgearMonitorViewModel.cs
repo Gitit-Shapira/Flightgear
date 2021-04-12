@@ -32,7 +32,7 @@ namespace FlightMonitor
 
         public int VM_LengthCSV
         {
-            get { return model.LengthCSV; }
+            get { return model.LengthCSV - 1; }
         }
 
         public Boolean VM_FilesInput

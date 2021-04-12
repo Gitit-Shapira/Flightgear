@@ -22,10 +22,11 @@ namespace FlightMonitor
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
         string selection,corFeat;
-        List<DataPoint> selFeatDataPoints,corFeatDataPoints;
+        List<DataPoint> selFeatDataPoints,corFeatDataPoints,combinedDataPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
         Dictionary<string,string> Correlations;
+        DataPoint[] linRegDataPoints;
         // the properties implementation
 
         public int LineCSV
@@ -34,6 +35,7 @@ namespace FlightMonitor
             set
             {
                 this.lineCSV = value;
+                update_data();
                 NotifyPropertyChanged("LineCSV");
             }
 
@@ -293,7 +295,23 @@ namespace FlightMonitor
             }
         }
 
-        
+        public DataPoint[] LinRegDataPoints
+        {
+            get
+            {
+                if(linRegDataPoints != null)
+                {
+                    return linRegDataPoints;
+                } else
+                {
+                    return new DataPoint[] { new DataPoint(0, 0), new DataPoint(0, 0) };
+                }
+            } set
+            {
+                linRegDataPoints = value;
+                NotifyPropertyChanged("LinRegDataPoints");
+            }
+        }
 
         public List<DataPoint> CorFeatDataPoints
         {
@@ -325,6 +343,24 @@ namespace FlightMonitor
             {
                 corFeat = value;
                 NotifyPropertyChanged("CorFeat");
+            }
+        }
+        public List<DataPoint> CombinedDataPoints
+        {
+            set
+            {
+                combinedDataPoints = value;
+                NotifyPropertyChanged("CombinedDataPoints");
+            }
+            get
+            {
+                if(combinedDataPoints!=null)
+                {
+                    return combinedDataPoints;
+                } else
+                {
+                    return new List<DataPoint>();
+                }
             }
         }
 
@@ -417,16 +453,19 @@ namespace FlightMonitor
 
         public void update_data()
         {
-            Rudder = Convert.ToDouble(timeS.FindValue("rudder", lineCSV));
-            Throttle = Convert.ToDouble(timeS.FindValue("throttle", lineCSV));
-            Aileron = Convert.ToDouble(timeS.FindValue("aileron", lineCSV));
-            Elevator = Convert.ToDouble(timeS.FindValue("elevator", lineCSV));
-            X = (Aileron * 90);
-            Y = (Elevator * 90);
-            if(selFeatDataPoints != null)
+            if (timeS != null)
             {
-                SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
-                CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
+                Rudder = Convert.ToDouble(timeS.FindValue("rudder", lineCSV));
+                Throttle = Convert.ToDouble(timeS.FindValue("throttle", lineCSV));
+                Aileron = Convert.ToDouble(timeS.FindValue("aileron", lineCSV));
+                Elevator = Convert.ToDouble(timeS.FindValue("elevator", lineCSV));
+                X = (Aileron * 90);
+                Y = (Elevator * 90);
+                if (selFeatDataPoints != null)
+                {
+                    SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
+                    CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
+                }
             }
         }
 

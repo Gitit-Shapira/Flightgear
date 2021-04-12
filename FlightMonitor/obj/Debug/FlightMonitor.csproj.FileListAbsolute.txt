@@ -51,8 +51,8 @@ C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightDetails.
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightDetails.baml
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\FlightDetails.g.cs
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\FlightDetails.baml
-C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csprojAssemblyReference.cache
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\Joystick.g.cs
 C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\Joystick.baml
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\Joystick.g.cs
 C:\Users\Public\Gitit\Flightgear\FlightMonitor\obj\Debug\Joystick.baml
+C:\Users\Roey\Documents\GitHub\Flightgear\FlightMonitor\obj\Debug\FlightMonitor.csprojAssemblyReference.cache

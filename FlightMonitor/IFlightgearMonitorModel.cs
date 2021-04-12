@@ -37,5 +37,7 @@ namespace FlightMonitor
         List<DataPoint> SelFeatDataPoints { get; }
         List<DataPoint> CorFeatDataPoints { get; set; }
         string CorFeat { get; set; }
+        DataPoint[] LinRegDataPoints { get; set; }
+        List<DataPoint> CombinedDataPoints { get; set; }
     }
 }

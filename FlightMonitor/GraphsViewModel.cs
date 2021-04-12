@@ -57,6 +57,21 @@ namespace FlightMonitor
                 return model.CorFeatDataPoints;
             }
         }
+
+        public DataPoint[] VM_LinRegDataPoints
+        {
+            get
+            {
+                return model.LinRegDataPoints;
+            }
+        }
+        public List<DataPoint> CombinedDataPoints
+        {
+            get
+            {
+                return model.CombinedDataPoints;
+            }
+        }
     }
 }
 

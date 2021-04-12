@@ -12,7 +12,6 @@ namespace FlightMonitor
         private List<KeyValuePair<string, List<float>>> table;
         public int NumOfColumns => table.Count;
         public int NumOfRows => table[0].Value.Count;
-
         public TimeSeries(List<string> columnNames)
         {
             table = new List<KeyValuePair<string, List<float>>>();
@@ -21,7 +20,6 @@ namespace FlightMonitor
                 table.Add(new KeyValuePair<string, List<float>>(s, new List<float>()));
             }
         }
-
         public List<string> GetColumnNames()
         {
             List<string> columns = new List<string>();
@@ -31,7 +29,6 @@ namespace FlightMonitor
             }
             return columns;
         }
-
         public void AddRow(string line)
         {
             string[] sVals = line.Split(',');
@@ -43,17 +40,14 @@ namespace FlightMonitor
                 }
             }
         }
-
         public float FindValue(string name, int row)
         {
-            return GetColumn(name)[row];
+            return GetColumn(name)[row<NumOfRows?row:NumOfRows-1];
         }
-
         public List<float> GetColumn(string name)
         {
             return table.Find(x => x.Key.Equals(name)).Value;
         }
-
         public List<float> GetColumn(int index)
         {
             return table[index].Value;

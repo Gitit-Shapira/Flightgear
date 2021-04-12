@@ -35,5 +35,11 @@
                 <oxy:LineSeries ItemsSource="{Binding VM_CorFeatDataPoints}"/>
             </oxy:Plot.Series>
         </oxy:Plot>
+        <oxy:Plot Grid.Row="3" Grid.Column="1"  Title="Linear regression of the two features" TitleFontSize="10" Background="Pink">
+            <oxy:Plot.Series>
+                <oxy:LineSeries ItemsSource="{Binding VM_LinRegDataPoints}"/>
+                <oxy:ScatterSeries ItemsSource="{Binding VM_CombinedDataPoints}"/>
+            </oxy:Plot.Series>
+        </oxy:Plot>
     </Grid>
 </UserControl>
