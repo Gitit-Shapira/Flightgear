@@ -63,7 +63,6 @@ namespace FlightMonitor
         {
             return table[index].Key;
         }
-
         public List<float> GetRow(int i)
         {
             List<float> l = new List<float>();

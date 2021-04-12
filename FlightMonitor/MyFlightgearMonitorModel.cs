@@ -25,7 +25,7 @@ namespace FlightMonitor
         List<DataPoint> selFeatDataPoints,corFeatDataPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
-
+        Dictionary<string,string> Correlations;
         // the properties implementation
 
         public int LineCSV
@@ -271,6 +271,9 @@ namespace FlightMonitor
             {
                 selection = value;
                 SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
+                CorFeat = Correlations[selection];
+                CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
+                NotifyPropertyChanged("Selection");
             }
         }
     
@@ -296,7 +299,9 @@ namespace FlightMonitor
         {
             get
             {
-                return corFeatDataPoints;
+                if (corFeatDataPoints != null)
+                    return corFeatDataPoints;
+                return new List<DataPoint>();
             }
             set
             {
@@ -309,7 +314,12 @@ namespace FlightMonitor
         {
             get
             {
-                return corFeat;
+                if (corFeat != null) {
+                    return corFeat;
+                } else
+                {
+                    return "";
+                }
             }
             set
             {
@@ -319,7 +329,7 @@ namespace FlightMonitor
         }
 
         //the methods
-        //constractor
+        //constructor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
         {
             this.telnetClient = telnetClient;
@@ -338,7 +348,19 @@ namespace FlightMonitor
             List<string> names = new List<string>();
             foreach (var name in query)
             {
-                names.Add(name.Value);
+                if (names.Find(x => x.Equals(name.Value)) != null)
+                {
+                    int i = 1;
+                    while (names.Find(x => x.Equals(name.Value + "(" + i + ")")) != null)
+                    {
+                        i++;
+                    }
+                    names.Add(name.Value + "(" + i + ")");
+                }
+                else
+                {
+                    names.Add(name.Value);
+                }
             }
 
             this.timeS = new TimeSeries(names);
@@ -347,6 +369,7 @@ namespace FlightMonitor
             {
                 timeS.AddRow(line);
             }
+            detectCorrelations();
             NotifyPropertyChanged("LengthCSV");
             NotifyPropertyChanged("IsXMLInput");
             NotifyPropertyChanged("ColumnNames");
@@ -384,12 +407,8 @@ namespace FlightMonitor
                     Pitch = timeS.FindValue("pitch-deg", LineCSV);
                     Roll = timeS.FindValue("roll-deg", LineCSV);
                     Yaw = timeS.FindValue("side-slip-deg", LineCSV);
-                    if(selFeatDataPoints != null)
-                    {
-                       Thread thr =new Thread( ()=> SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
-                        thr.Start();
-                    }
-                    update_data();
+                    Thread thr = new Thread(update_data);
+                    thr.Start();
                     LineCSV++;
                     Thread.Sleep(1000 / this.speed);
                 }
@@ -404,14 +423,23 @@ namespace FlightMonitor
             Elevator = Convert.ToDouble(timeS.FindValue("elevator", lineCSV));
             X = (Aileron * 90);
             Y = (Elevator * 90);
+            if(selFeatDataPoints != null)
+            {
+                SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
+                CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
+            }
         }
-
-       
 
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
+
+        private void detectCorrelations()
+        {
+            if (Correlations != null) { Correlations.Clear(); } else { Correlations = new Dictionary<string, string>(); }
+            timeS.GetColumnNames().ForEach(x => Correlations.Add(x,TimeSeriesUtil.MostCorFeatIndex(x,timeS)));
         }
     }
 }
