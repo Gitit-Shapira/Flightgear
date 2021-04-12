@@ -5,25 +5,10 @@ using System.ComponentModel;
 
 namespace FlightMonitor
 {
-    class FlightgearMonitorViewModel : INotifyPropertyChanged
+    class FlightgearMonitorViewModel : ViewModel
     {
-        private IFlightgearMonitorModel model;
-        public FlightgearMonitorViewModel(IFlightgearMonitorModel model)
-        {
-            this.model = model;
-            model.PropertyChanged +=
-            delegate (Object sender, PropertyChangedEventArgs e)
-            {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
-            };
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void NotifyPropertyChanged(string propName)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        }
 
+        public FlightgearMonitorViewModel(IFlightgearMonitorModel model) : base(model) { }
         // Properties
         public int VM_Speed
         {

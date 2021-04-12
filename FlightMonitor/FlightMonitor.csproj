@@ -78,6 +78,7 @@
     <Compile Include="FlightDetails.xaml.cs">
       <DependentUpon>FlightDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
     <Page Include="ControlBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
