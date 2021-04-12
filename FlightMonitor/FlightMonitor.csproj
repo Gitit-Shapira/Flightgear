@@ -150,5 +150,13 @@
   <ItemGroup>
     <Resource Include="Stop_image.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pause.png" />
+    <Resource Include="Play.png" />
+    <Resource Include="Stop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

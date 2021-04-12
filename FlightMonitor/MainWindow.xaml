@@ -7,6 +7,9 @@
         xmlns:con="clr-namespace:FlightMonitor" xmlns:win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework" xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" AllowDrop="True" >
+    <Window.Background>
+        <ImageBrush ImageSource="Sky.png" Stretch="Fill" />
+    </Window.Background>
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
@@ -32,6 +35,6 @@
                 Content="Open CSV" Click ="Fly_default_click" />
         <Button Grid.Row="1" Grid.Column="0" 
                 Content="Open XML" Click ="Load_xml" />
-        
+
     </Grid>
 </Window>
