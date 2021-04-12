@@ -33,6 +33,10 @@ namespace FlightMonitor
             {
                 model.Selection = value;
             }
+            get
+            {
+                return model.Selection;
+            }
         }
         public List<DataPoint> VM_SelFeatDataPoints
         {
@@ -65,11 +69,18 @@ namespace FlightMonitor
                 return model.LinRegDataPoints;
             }
         }
-        public List<DataPoint> CombinedDataPoints
+        public List<DataPoint> VM_CombinedDataPoints
         {
             get
             {
                 return model.CombinedDataPoints;
+            }
+        }
+        public List<DataPoint> VM_RecentCombinedDataPoints
+        {
+            get
+            {
+                return model.RecentCombinedDataPoints;
             }
         }
     }

@@ -22,7 +22,7 @@ namespace FlightMonitor
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
         string selection,corFeat;
-        List<DataPoint> selFeatDataPoints,corFeatDataPoints,combinedDataPoints;
+        List<DataPoint> selFeatDataPoints,corFeatDataPoints,combinedDataPoints, recentCombinedDataPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
         Dictionary<string,string> Correlations;
@@ -275,7 +275,14 @@ namespace FlightMonitor
                 SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
                 CorFeat = Correlations[selection];
                 CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
+                LinRegDataPoints = TimeSeriesUtil.LinReg(timeS.GetColumn(selection), timeS.GetColumn(corFeat));
+                CombinedDataPoints = TimeSeriesUtil.CombineColumns(timeS.GetColumn(selection), timeS.GetColumn(corFeat));
+                
                 NotifyPropertyChanged("Selection");
+            }
+            get
+            {
+                return selection;
             }
         }
     
@@ -364,6 +371,25 @@ namespace FlightMonitor
             }
         }
 
+        public List<DataPoint> RecentCombinedDataPoints
+        {
+            get
+            {
+                if (recentCombinedDataPoints != null)
+                {
+                    return recentCombinedDataPoints;
+                }
+                else
+                {
+                    return new List<DataPoint>();
+                }
+            }
+            set
+            {
+                recentCombinedDataPoints = value;
+                NotifyPropertyChanged("RecentCombinedDataPoints");
+            }
+        }
         //the methods
         //constructor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
@@ -463,8 +489,13 @@ namespace FlightMonitor
                 Y = (Elevator * 90);
                 if (selFeatDataPoints != null)
                 {
-                    SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV);
-                    CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
+                    Thread t = new Thread(()=> SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
+                    Thread tt = new Thread(()=> CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV));
+                    t.Start();
+                    tt.Start();
+                    int rangeBegin = Math.Max(LineCSV - 600, 0);
+                    int rangeEnd = Math.Min(rangeBegin + 600, timeS.NumOfRows);
+                    RecentCombinedDataPoints = CombinedDataPoints.GetRange(rangeBegin,rangeEnd - rangeBegin);
                 }
             }
         }

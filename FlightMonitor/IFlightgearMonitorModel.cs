@@ -33,11 +33,12 @@ namespace FlightMonitor
         double Throttle { get; set; }
         double Y { get; set; }
         double X { get; set; }
-        string Selection { set; }
+        string Selection { set; get; }
         List<DataPoint> SelFeatDataPoints { get; }
         List<DataPoint> CorFeatDataPoints { get; set; }
         string CorFeat { get; set; }
         DataPoint[] LinRegDataPoints { get; set; }
         List<DataPoint> CombinedDataPoints { get; set; }
+        List<DataPoint> RecentCombinedDataPoints { get; set; }
     }
 }
