@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace FlightMonitor
@@ -489,13 +490,14 @@ namespace FlightMonitor
                 Y = (Elevator * 90);
                 if (selFeatDataPoints != null)
                 {
-                    Thread t = new Thread(()=> SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
-                    Thread tt = new Thread(()=> CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV));
-                    t.Start();
-                    tt.Start();
-                    int rangeBegin = Math.Max(LineCSV - 600, 0);
-                    int rangeEnd = Math.Min(rangeBegin + 600, timeS.NumOfRows);
-                    RecentCombinedDataPoints = CombinedDataPoints.GetRange(rangeBegin,rangeEnd - rangeBegin);
+                    int rangeBegin = Math.Max(LineCSV - 300, 0);
+                    int rangeEnd = Math.Min(rangeBegin + 300, timeS.NumOfRows);
+                    Task t1 = new Task(() => SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
+                    Task t2 = new Task(() => CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV));
+                    Task t3 = new Task(() => RecentCombinedDataPoints = CombinedDataPoints.GetRange(rangeBegin, rangeEnd - rangeBegin));
+                    t1.Start();
+                    t2.Start();
+                    t3.Start();
                 }
             }
         }

@@ -53,7 +53,7 @@ namespace FlightMonitor
 
         }
 
-        private int playSpeed = 20;
+        private int playSpeed = 10;
         private void Selected_0_25(object sender, RoutedEventArgs e)
         {
             VM.VM_Speed = (int)(playSpeed * 0.25);
