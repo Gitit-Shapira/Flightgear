@@ -71,7 +71,7 @@ namespace FlightMonitor
             {
                 if (!ts.GetColumnName(i).Equals(feat))
                 {
-                    curr = Pearson(ts.GetColumn(feat), ts.GetColumn(i));
+                    curr = Math.Abs(Pearson(ts.GetColumn(feat), ts.GetColumn(i)));
                     if (maxcor < curr)
                     {
                         maxcor = curr;
