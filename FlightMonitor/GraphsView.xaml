@@ -37,9 +37,8 @@
         </oxy:Plot>
         <oxy:Plot Grid.Row="3" Grid.Column="1"  Title="Linear regression of the two features" TitleFontSize="10" Background="Transparent">
             <oxy:Plot.Series>
-                
-                <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="Black" ItemsSource="{Binding VM_CombinedDataPoints}" DataFieldX="X" DataFieldY="Y"/>
                 <oxy:LineSeries Background="Transparent" ItemsSource="{Binding VM_LinRegDataPoints}" DataFieldX="X" DataFieldY="Y"/>
+                <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="Black" ItemsSource="{Binding VM_CombinedDataPoints}" DataFieldX="X" DataFieldY="Y"/>
                 <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="HotPink" ItemsSource="{Binding VM_RecentCombinedDataPoints}" DataFieldX="X" DataFieldY="Y"/>
             </oxy:Plot.Series>
         </oxy:Plot>

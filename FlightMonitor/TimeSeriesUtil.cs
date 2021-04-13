@@ -57,21 +57,21 @@ namespace FlightMonitor
             float cov = COAVG(c1, c2) - AVG(c1) * AVG(c2);
             return cov;
         }
-        static public float Pearson(List<float> c1, List<float> c2)
+        static public double Pearson(List<float> c1, List<float> c2)
         {
-            double p = COV(c1, c2) / (System.Math.Sqrt(VAR(c1)) * (System.Math.Sqrt(VAR(c2))));
-            return (float)p;
+            double p = COV(c1, c2) / (Math.Sqrt(VAR(c1)) * Math.Sqrt(VAR(c2)));
+            return p;
         }
         static public string MostCorFeatIndex(string feat, TimeSeries ts)
         {
-            float maxcor = 0;
+            double maxcor = 0;
             string currMax = feat;
-            float curr;
+            double curr;
             for(int i = 0; i<ts.NumOfColumns; i++)
             {
                 if (!ts.GetColumnName(i).Equals(feat))
                 {
-                    curr = Pearson(ts.GetColumn(currMax), ts.GetColumn(i));
+                    curr = Pearson(ts.GetColumn(feat), ts.GetColumn(i));
                     if (maxcor < curr)
                     {
                         maxcor = curr;

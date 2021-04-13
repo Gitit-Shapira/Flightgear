@@ -447,7 +447,7 @@ namespace FlightMonitor
 
         public void start()
         {
-            Thread t = new Thread(run);
+            Task t = new Task(run);
             t.Start();
         }
 
@@ -470,7 +470,7 @@ namespace FlightMonitor
                     Pitch = timeS.FindValue("pitch-deg", LineCSV);
                     Roll = timeS.FindValue("roll-deg", LineCSV);
                     Yaw = timeS.FindValue("side-slip-deg", LineCSV);
-                    Thread thr = new Thread(update_data);
+                    Task thr = new Task(update_data);
                     thr.Start();
                     LineCSV++;
                     Thread.Sleep(1000 / this.speed);
@@ -491,13 +491,16 @@ namespace FlightMonitor
                 if (selFeatDataPoints != null)
                 {
                     int rangeBegin = Math.Max(LineCSV - 300, 0);
-                    int rangeEnd = Math.Min(rangeBegin + 300, timeS.NumOfRows);
                     Task t1 = new Task(() => SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
                     Task t2 = new Task(() => CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV));
-                    Task t3 = new Task(() => RecentCombinedDataPoints = CombinedDataPoints.GetRange(rangeBegin, rangeEnd - rangeBegin));
+                    if (CombinedDataPoints.Count != 0)
+                    {
+                        Task t3 = new Task(() => RecentCombinedDataPoints = CombinedDataPoints.GetRange(rangeBegin, LineCSV - rangeBegin));
+                        t3.Start();
+                    }
                     t1.Start();
                     t2.Start();
-                    t3.Start();
+
                 }
             }
         }
@@ -511,7 +514,7 @@ namespace FlightMonitor
         private void detectCorrelations()
         {
             if (Correlations != null) { Correlations.Clear(); } else { Correlations = new Dictionary<string, string>(); }
-            timeS.GetColumnNames().ForEach(x => Correlations.Add(x,TimeSeriesUtil.MostCorFeatIndex(x,timeS)));
+            timeS.GetColumnNames().ForEach(x => { string s = TimeSeriesUtil.MostCorFeatIndex(x, timeS); Debug.WriteLine(x + " and " + s); Correlations.Add(x, TimeSeriesUtil.MostCorFeatIndex(x, timeS)); }); 
         }
     }
 }

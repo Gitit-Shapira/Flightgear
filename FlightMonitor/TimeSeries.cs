@@ -46,7 +46,14 @@ namespace FlightMonitor
         }
         public List<float> GetColumn(string name)
         {
-            return table.Find(x => x.Key.Equals(name)).Value;
+            List<float> l = table.Find(x => x.Key.Equals(name)).Value;
+            if(l!=null)
+            {
+                return l;
+            } else
+            {
+                return new List<float>();
+            }
         }
         public List<float> GetColumn(int index)
         {
