@@ -96,7 +96,7 @@ The main files in our project are as follow:
     - MainWindow -  responsible to display the main screen which contains the menu.
 
 ## More documentation
-- UML:
+- UML: https://github.com/Gitit-Shapira/Flightgear/blob/main/uml%20flightgear%20project.pdf
 - Control Bar: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/ControlBar.md
 - Joystick: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Joystick.md
 - Graph: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Graph.md
