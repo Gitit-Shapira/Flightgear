@@ -25,17 +25,17 @@
                       ItemsSource="{Binding VM_ColumnNames}"
                       SelectedValue="{Binding VM_Selection}"/>
         </StackPanel>
-        <oxy:Plot Grid.Row="2" Grid.Column="0"  Title="{Binding ElementName=comboBox, Path=SelectedItem}" TitleFontSize="10" Background="Transparent">
+        <oxy:Plot Grid.Row="2" Grid.Column="0"  Title="{Binding ElementName=comboBox, Path=SelectedItem}" TitleFontSize="10" Background="#7FFFFFFF">
             <oxy:Plot.Series>
                 <oxy:LineSeries ItemsSource="{Binding VM_SelFeatDataPoints}"/>
             </oxy:Plot.Series>
         </oxy:Plot>
-        <oxy:Plot Grid.Row="2" Grid.Column="1"  Title="{Binding VM_CorFeat}" TitleFontSize="10" Background="Transparent">
+        <oxy:Plot Grid.Row="2" Grid.Column="1"  Title="{Binding VM_CorFeat}" TitleFontSize="10" Background="#7FFFFFFF">
             <oxy:Plot.Series>
                 <oxy:LineSeries ItemsSource="{Binding VM_CorFeatDataPoints}"/>
             </oxy:Plot.Series>
         </oxy:Plot>
-        <oxy:Plot Grid.Row="3" Grid.Column="1"  Title="Linear regression of the two features" TitleFontSize="10" Background="Transparent">
+        <oxy:Plot Grid.Row="3" Grid.Column="1"  Title="Linear regression of the two features" TitleFontSize="10" Background="#7FFFFFFF">
             <oxy:Plot.Series>
                 <oxy:LineSeries Background="Transparent" ItemsSource="{Binding VM_LinRegDataPoints}" DataFieldX="X" DataFieldY="Y"/>
                 <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="Black" ItemsSource="{Binding VM_CombinedDataPoints}" DataFieldX="X" DataFieldY="Y"/>
