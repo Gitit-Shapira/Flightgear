@@ -110,7 +110,7 @@ The main files in our project are as follow:
 
 ## Writers
 - Gitit Shapira
-- Roi Peleg
+- Roey Peleg
 - Dvir Asaf
 - Or Memiya
 
