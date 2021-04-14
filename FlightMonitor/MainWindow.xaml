@@ -10,7 +10,7 @@
     <Window.Background>
         <ImageBrush ImageSource="Sky.png" Stretch="Fill" />
     </Window.Background>
-    <Grid ShowGridLines="True">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="20" />
@@ -23,7 +23,7 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <WrapPanel Grid.Column="0" Grid.Row="3">
+        <WrapPanel Grid.Column="0" Grid.Row="2" Grid.RowSpan="2">
             <ListBox x:Name="ListBox1"
                 ItemsSource="{Binding VM_AnomalyList}"
                      HorizontalAlignment="Stretch"
@@ -41,9 +41,6 @@
                 Content="Open CSV" Click ="Fly_default_click" />
         <Button Grid.Row="1" Grid.Column="0" 
                 Content="Open XML" Click ="Load_xml" />
-        <Button Grid.Row="2" Grid.Column="0" Height="30"
-                Content="Open DLL" Click ="Load_dll"
-                Margin="0,128,397.667,157.833" Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
     </Grid>
 </Window>

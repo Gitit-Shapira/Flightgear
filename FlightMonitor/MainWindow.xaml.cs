@@ -49,17 +49,7 @@ namespace FlightMonitor
             }
         }
 
-        private void Load_dll(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "DLL file (*.dll)|*.dll";
-            openFileDialog.RestoreDirectory = true;
-            if (openFileDialog.ShowDialog() == true)
-            {
-                Debug.WriteLine(openFileDialog.FileName);
-                vm.VM_DLL = openFileDialog.FileName;
-            }
-        }
+        
 
         private void listBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {

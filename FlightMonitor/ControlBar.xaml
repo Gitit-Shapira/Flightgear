@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="800">
     
-        <Grid ShowGridLines="True">
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -48,10 +48,11 @@
 
             <Slider IsEnabled="{Binding VM_FilesInput}" Value="{Binding VM_LineCSV}" 
                     Minimum="0" Maximum="{Binding VM_LengthCSV}"  Name="slider_seek" 
-                    Width="770" ValueChanged="Slider_ValueChanged" 
+                    ValueChanged="Slider_ValueChanged" 
                     Grid.Row="2" Grid.ColumnSpan="6" Background="WhiteSmoke"/>
             <TextBlock Grid.Row="0" Grid.Column="5" Text="Play Speed"  Height="24"   FontWeight="Bold" FontSize="15" Width="80"/>
-            <ComboBox Grid.Row="1" Grid.Column="5" Width="100" SelectionChanged="ComboBox_SelectionChanged" >
+            <ComboBox Grid.Row="1" Grid.Column="5" Width="100" 
+                      SelectionChanged="ComboBox_SelectionChanged" >
                 <ComboBoxItem Selected="Selected_0_25">0.25</ComboBoxItem>
                 <ComboBoxItem Selected="Selected_0_5" >0.5</ComboBoxItem>
                 <ComboBoxItem Selected="Selected_0_75" >0.75</ComboBoxItem>
