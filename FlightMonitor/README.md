@@ -17,8 +17,8 @@ The app will play the data like a movie from the beginning of the recording to t
 - Download Visual Studio 2019 with .NET framework v4.7.1
 - WPF
 - C#
+- .NET 5.0
 - Download the Windows version for Flight Gear Simulator on https://www.flightgear.org/
-- After you are done with the previous step make sure to go to the following path ```C:\Program Files\FlightGear 2020.3.6\data\Protocol``` and then put there our XML file (https://github.com/Gitit-Shapira/Flightgear/blob/main/playback_small.xml).
 
 ## Getting Started
 
@@ -44,7 +44,7 @@ A screenshot is attached:
 
 Make sure to click the ```Fly``` button and wait to see the following screen before you continue:
 
-![WhatsApp Image 2021-04-14 at 14 34 38](https://user-images.githubusercontent.com/59093573/114744166-13363500-9d56-11eb-853f-10d9413cc543.jpeg)
+![WhatsApp Image 2021-04-14 at 14 30 40](https://user-images.githubusercontent.com/38204874/114703614-2f25e080-9d2e-11eb-9237-14c7a15019b1.jpeg)
 
 Now, in the ```Visual Studio``` click the ```Start``` button to clean and build the project, and the following window will pop up:
 
@@ -97,9 +97,9 @@ The main files in our project are as follow:
 
 ## More documentation
 - UML:
-- Control Bar: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/ControlBar.md
-- Joystick: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Joystick.md
-- Graph: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Graph.md
+- Control Bar:
+- Joystick:
+- Graph
 - DLL plugin
 
 
