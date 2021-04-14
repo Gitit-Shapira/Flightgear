@@ -48,7 +48,8 @@ Make sure to click the ```Fly``` button and wait to see the following screen bef
 
 Now, in the ```Visual Studio``` click the ```Start``` button to clean and build the project, and the following window will pop up:
 
-WhatsApp Image 2021-04-14 at 20.12.21
+![WhatsApp Image 2021-04-14 at 20 12 21](https://user-images.githubusercontent.com/59093573/114773083-40470f80-9d77-11eb-9988-9883932f1e31.jpeg)
+
 
 ![WhatsApp Image 2021-04-14 at 14 15 50](https://user-images.githubusercontent.com/38204874/114703747-5b416180-9d2e-11eb-929e-b1ba5b52e859.jpeg)
 
