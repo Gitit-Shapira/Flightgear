@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FlightMonitor"
         xmlns:con="clr-namespace:FlightMonitor" xmlns:win32="clr-namespace:Microsoft.Win32;assembly=PresentationFramework" xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" AllowDrop="True" >
+        Title="MainWindow" Height="650" Width="1000" AllowDrop="True" >
     <Window.Background>
         <ImageBrush ImageSource="Sky.png" Stretch="Fill" />
     </Window.Background>
@@ -23,6 +23,12 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="0" Grid.Row="3">
+            <ListBox x:Name="ListBox1"
+                ItemsSource="{Binding VM_AnomalyList}"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"/>
+        </WrapPanel>
         <con:FlightDetails x:Name="FlightDetails1" Grid.Column="3"  Grid.Row="3" />
         <con:ControlBar x:Name="ControlBar1" Grid.Column="0" 
                         Grid.ColumnSpan="4" Grid.Row="4"  Grid.RowSpan="2" />
@@ -35,6 +41,9 @@
                 Content="Open CSV" Click ="Fly_default_click" />
         <Button Grid.Row="1" Grid.Column="0" 
                 Content="Open XML" Click ="Load_xml" />
+        <Button Grid.Row="2" Grid.Column="0" Height="30"
+                Content="Open DLL" Click ="Load_dll"
+                Margin="0,128,397.667,157.833" Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
     </Grid>
 </Window>

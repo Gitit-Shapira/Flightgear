@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -12,22 +13,26 @@ namespace FlightMonitor
     public class MyFlightgearMonitorModel : IFlightgearMonitorModel
     {
         //fields
-        System.IO.StreamReader file;
+        System.IO.StreamReader file, learnFile;
         string line;
-        TimeSeries timeS;
+        TimeSeries timeS, learnTS;
+        Timeseries times, learnts;
         private volatile int lineCSV;
         private int speed;
-        string path;
+        string path, learnPath, dllPath;
         string xmlpath;
         private double x, y, aileron, elevator, rudder, throttle;
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
-        string selection,corFeat;
-        List<DataPoint> selFeatDataPoints,corFeatDataPoints,combinedDataPoints, recentCombinedDataPoints,dlldisplay,anomalyPoints;
+        string selection, corFeat;
+        List<DataPoint> selFeatDataPoints, corFeatDataPoints, combinedDataPoints, recentCombinedDataPoints, dlldisplay, anomalyPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
-        Dictionary<string,string> Correlations;
+        Dictionary<string, string> Correlations;
         DataPoint[] linRegDataPoints;
+        List<string> anomalyList;
+        AnomalyDetector detector;
+        List<int> anomalyTimeList;
         // the properties implementation
 
         public int LineCSV
@@ -59,7 +64,6 @@ namespace FlightMonitor
                 }
             }
         }
-
         public string XMLPath
         {
             get { return xmlpath; }
@@ -88,7 +92,6 @@ namespace FlightMonitor
             }
 
         }
-
         public Boolean Stop
         {
             get { return stop; }
@@ -98,7 +101,6 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Stop");
             }
         }
-
         public int LengthCSV
         {
             get
@@ -108,7 +110,6 @@ namespace FlightMonitor
                 else return timeS.NumOfRows;
             }
         }
-
         public Boolean FilesInput
         {
             get
@@ -116,7 +117,6 @@ namespace FlightMonitor
                 return (path != null && xmlpath != null);
             }
         }
-
         public List<string> ColumnNames
         {
             get
@@ -126,7 +126,6 @@ namespace FlightMonitor
                 return new List<string>();
             }
         }
-
         public double Rudder
         {
             get
@@ -175,7 +174,6 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Throttle");
             }
         }
-
         public double X
         {
             get { return x; }
@@ -194,9 +192,7 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Y");
             }
         }
-
         private float altitude_ft;
-
         public float Altitude_ft
         {
             get { return altitude_ft; }
@@ -206,9 +202,7 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Altitude_ft");
             }
         }
-
         private float airspeed_kt;
-
         public float Airspeed_kt
         {
             get { return airspeed_kt; }
@@ -218,10 +212,7 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Airspeed_kt");
             }
         }
-
-
         private float heading;
-
         public float Heading
         {
             get { return heading; }
@@ -231,9 +222,7 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Heading");
             }
         }
-
         private float pitch;
-
         public float Pitch
         {
             get { return pitch; }
@@ -243,9 +232,7 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Pitch");
             }
         }
-
         private float roll;
-
         public float Roll
         {
             get { return roll; }
@@ -255,9 +242,7 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Roll");
             }
         }
-
         private float yaw;
-
         public float Yaw
         {
             get { return yaw; }
@@ -267,7 +252,6 @@ namespace FlightMonitor
                 NotifyPropertyChanged("Yaw");
             }
         }
-
         public string Selection
         {
             set
@@ -278,7 +262,7 @@ namespace FlightMonitor
                 CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
                 LinRegDataPoints = TimeSeriesUtil.LinReg(timeS.GetColumn(selection), timeS.GetColumn(corFeat));
                 CombinedDataPoints = TimeSeriesUtil.CombineColumns(timeS.GetColumn(selection), timeS.GetColumn(corFeat));
-                
+
                 NotifyPropertyChanged("Selection");
             }
             get
@@ -286,7 +270,6 @@ namespace FlightMonitor
                 return selection;
             }
         }
-    
         public List<DataPoint> SelFeatDataPoints
         {
             set
@@ -302,25 +285,25 @@ namespace FlightMonitor
                 return new List<DataPoint>();
             }
         }
-
         public DataPoint[] LinRegDataPoints
         {
             get
             {
-                if(linRegDataPoints != null)
+                if (linRegDataPoints != null)
                 {
                     return linRegDataPoints;
-                } else
+                }
+                else
                 {
                     return new DataPoint[] { new DataPoint(0, 0), new DataPoint(0, 0) };
                 }
-            } set
+            }
+            set
             {
                 linRegDataPoints = value;
                 NotifyPropertyChanged("LinRegDataPoints");
             }
         }
-
         public List<DataPoint> CorFeatDataPoints
         {
             get
@@ -340,9 +323,11 @@ namespace FlightMonitor
         {
             get
             {
-                if (corFeat != null) {
+                if (corFeat != null)
+                {
                     return corFeat;
-                } else
+                }
+                else
                 {
                     return "";
                 }
@@ -362,10 +347,11 @@ namespace FlightMonitor
             }
             get
             {
-                if(combinedDataPoints!=null)
+                if (combinedDataPoints != null)
                 {
                     return combinedDataPoints;
-                } else
+                }
+                else
                 {
                     return new List<DataPoint>();
                 }
@@ -392,6 +378,37 @@ namespace FlightMonitor
             }
         }
 
+        public List<string> AnomalyList
+        {
+            get
+            {
+                return anomalyList;
+            }
+            set
+            {
+                anomalyList = value;
+                NotifyPropertyChanged("AnomalyList");
+            }
+        }
+        public List<int> AnomalyTimeList
+        {
+            get
+            {
+                if (anomalyList != null)
+                {
+                    return anomalyTimeList;
+                }
+                else
+                {
+                    return new List<int>();
+                }
+            }
+            set
+            {
+                anomalyTimeList = value;
+                NotifyPropertyChanged("AnomalyTimeList");
+            }
+        }
         public List<DataPoint> DLLDisplay
         {
             get
@@ -430,6 +447,9 @@ namespace FlightMonitor
                 NotifyPropertyChanged("AnomalyPoints");
             }
         }
+
+        public string DLL { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         //the methods
         //constructor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
@@ -437,13 +457,16 @@ namespace FlightMonitor
             this.telnetClient = telnetClient;
             this.lineCSV = 1;
             stop = false;
-            this.speed = 30;
+            this.speed = 10;
+            AnomalyList = new List<string>();
+            AnomalyTimeList = new List<int>();
+            detector = new AnomalyDetector();
         }
         public void connect(string ip, int port)
         {
             telnetClient.connect(ip, port);
             this.file = new System.IO.StreamReader(path);
-
+            learnFile = new System.IO.StreamReader(@"reg_flight.csv");
             XElement Xelement = XElement.Load(xmlpath);
             XDocument xDoc = XDocument.Load(xmlpath);
             IEnumerable<XElement> query = Xelement.Descendants("output").Descendants("name");
@@ -464,17 +487,27 @@ namespace FlightMonitor
                     names.Add(name.Value);
                 }
             }
-
             this.timeS = new TimeSeries(names);
-
+            times = new Timeseries(names);
+            learnts = new Timeseries(names);
             while ((this.line = this.file.ReadLine()) != null)
             {
                 timeS.AddRow(line);
+                times.AddRow(line);
             }
+            while ((this.line = this.learnFile.ReadLine()) != null)
+            {
+                learnts.AddRow(line);
+            }
+            detector.LearnNormal(learnts);
+            detector.detect(times).ForEach(x => { AnomalyList.Add(x.description); AnomalyTimeList.Add(x.timeStep); });
             detectCorrelations();
             NotifyPropertyChanged("LengthCSV");
             NotifyPropertyChanged("IsXMLInput");
             NotifyPropertyChanged("ColumnNames");
+            List<string> temp = anomalyList;
+            AnomalyList = new List<string>();
+            AnomalyList = temp;
             start();
         }
         public void disconnect()
@@ -553,7 +586,7 @@ namespace FlightMonitor
         private void detectCorrelations()
         {
             if (Correlations != null) { Correlations.Clear(); } else { Correlations = new Dictionary<string, string>(); }
-            timeS.GetColumnNames().ForEach(x => { string s = TimeSeriesUtil.MostCorFeatIndex(x, timeS); Debug.WriteLine(x + " and " + s); Correlations.Add(x, TimeSeriesUtil.MostCorFeatIndex(x, timeS)); }); 
+            timeS.GetColumnNames().ForEach(x => { string s = TimeSeriesUtil.MostCorFeatIndex(x, timeS); Correlations.Add(x, TimeSeriesUtil.MostCorFeatIndex(x, timeS)); });
         }
     }
 }

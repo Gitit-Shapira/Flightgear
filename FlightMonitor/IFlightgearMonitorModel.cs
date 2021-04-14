@@ -42,6 +42,7 @@ namespace FlightMonitor
         List<DataPoint> RecentCombinedDataPoints { get; set; }
         List<DataPoint> DLLDisplay { get; set; }
         List<DataPoint> AnomalyPoints { get; set; }
-
+        List<string> AnomalyList { get; set; }
+        string DLL { get; set; }
     }
 }

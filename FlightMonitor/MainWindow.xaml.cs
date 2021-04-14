@@ -13,13 +13,14 @@ namespace FlightMonitor
         public MainWindow()
         {
             InitializeComponent();
-            main_window.Show();
             model = new MyFlightgearMonitorModel(new MyTelnetClient());
+            vm = new MainWindowViewModel(model);
             ControlBar1.HookVM(model);
             GraphsView1.HookVM(model);
             FlightDetails1.HookVM(model);
             Joystick1.HookVM(model);
-            vm = new MainWindowViewModel(model);
+            DataContext = vm;
+            main_window.Show();
         }
 
         private void Fly_default_click(object sender, RoutedEventArgs e)
@@ -48,5 +49,21 @@ namespace FlightMonitor
             }
         }
 
+        private void Load_dll(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "DLL file (*.dll)|*.dll";
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Debug.WriteLine(openFileDialog.FileName);
+                vm.VM_DLL = openFileDialog.FileName;
+            }
+        }
+
+        private void listBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

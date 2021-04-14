@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AnomalyDetector.cs" />
     <Compile Include="FlightDataViewModel.cs" />
     <Compile Include="GraphsView.xaml.cs">
       <DependentUpon>GraphsView.xaml</DependentUpon>
@@ -139,6 +140,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="reg_flight.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

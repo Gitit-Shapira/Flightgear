@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-
+using System.Diagnostics;
 
 namespace FlightMonitor
 {
@@ -28,6 +29,27 @@ namespace FlightMonitor
             {
                 model.XMLPath = value;
                 NotifyPropertyChanged("XMLPath");
+            }
+        }
+
+        public List<string> VM_AnomalyList
+        {
+            get
+            {
+                Debug.Write("AAAAAAAAAAAAAAA");
+                return model.AnomalyList;
+            }
+        }
+        public string VM_DLL
+        {
+            get
+            {
+                return model.DLL;
+            }
+            set
+            {
+                model.DLL = value;
+                NotifyPropertyChanged("DLL");
             }
         }
     }
