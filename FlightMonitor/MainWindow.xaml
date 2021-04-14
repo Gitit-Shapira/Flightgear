@@ -23,6 +23,10 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="0" Grid.Row="3">
+            <ListBox x:Name="listBox"
+                     Height="140" Width="130"/>
+        </WrapPanel>
         <con:FlightDetails x:Name="FlightDetails1" Grid.Column="3"  Grid.Row="3" />
         <con:ControlBar x:Name="ControlBar1" Grid.Column="0" 
                         Grid.ColumnSpan="4" Grid.Row="4"  Grid.RowSpan="2" />
