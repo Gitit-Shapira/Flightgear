@@ -12,3 +12,8 @@ FlightMonitor/bin/Debug/FlightMonitor.exe
 *.cache
 *.pdb
 *.lref
+/FlightMonitor/obj/Debug/ControlBar.baml
+/FlightMonitor/obj/Debug/GraphsView.baml
+/FlightMonitor/obj/Debug/FlightDetails.baml
+/FlightMonitor/obj/Debug/Joystick.baml
+/FlightMonitor/obj/Debug/MainWindow.baml
