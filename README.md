@@ -97,9 +97,9 @@ The main files in our project are as follow:
 
 ## More documentation
 - UML:
-- Control Bar:
-- Joystick:
-- Graph
+- Control Bar: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/ControlBar.md
+- Joystick: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Joystick.md
+- Graph: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Graph.md
 - DLL plugin
 
 
