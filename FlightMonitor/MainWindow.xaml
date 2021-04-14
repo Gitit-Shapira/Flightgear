@@ -10,7 +10,7 @@
     <Window.Background>
         <ImageBrush ImageSource="Sky.png" Stretch="Fill" />
     </Window.Background>
-    <Grid ShowGridLines="True">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="20" />
