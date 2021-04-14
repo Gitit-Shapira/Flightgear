@@ -40,5 +40,8 @@ namespace FlightMonitor
         DataPoint[] LinRegDataPoints { get; set; }
         List<DataPoint> CombinedDataPoints { get; set; }
         List<DataPoint> RecentCombinedDataPoints { get; set; }
+        List<DataPoint> DLLDisplay { get; set; }
+        List<DataPoint> AnomalyPoints { get; set; }
+
     }
 }

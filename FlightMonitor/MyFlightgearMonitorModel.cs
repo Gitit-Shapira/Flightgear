@@ -23,7 +23,7 @@ namespace FlightMonitor
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
         string selection,corFeat;
-        List<DataPoint> selFeatDataPoints,corFeatDataPoints,combinedDataPoints, recentCombinedDataPoints;
+        List<DataPoint> selFeatDataPoints,corFeatDataPoints,combinedDataPoints, recentCombinedDataPoints,dlldisplay,anomalyPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
         Dictionary<string,string> Correlations;
@@ -389,6 +389,45 @@ namespace FlightMonitor
             {
                 recentCombinedDataPoints = value;
                 NotifyPropertyChanged("RecentCombinedDataPoints");
+            }
+        }
+
+        public List<DataPoint> DLLDisplay
+        {
+            get
+            {
+                if (dlldisplay != null)
+                {
+                    return dlldisplay;
+                }
+                else
+                {
+                    return new List<DataPoint>();
+                }
+            }
+            set
+            {
+                recentCombinedDataPoints = value;
+                NotifyPropertyChanged("DLLDisplay");
+            }
+        }
+        public List<DataPoint> AnomalyPoints
+        {
+            get
+            {
+                if (anomalyPoints != null)
+                {
+                    return anomalyPoints;
+                }
+                else
+                {
+                    return new List<DataPoint>();
+                }
+            }
+            set
+            {
+                recentCombinedDataPoints = value;
+                NotifyPropertyChanged("AnomalyPoints");
             }
         }
         //the methods

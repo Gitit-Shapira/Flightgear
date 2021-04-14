@@ -83,6 +83,22 @@ namespace FlightMonitor
                 return model.RecentCombinedDataPoints;
             }
         }
+
+        public List<DataPoint> VM_DLLDisplay
+        {
+            get
+            {
+                return model.DLLDisplay;
+            }
+        }
+
+        public List<DataPoint> VM_AnomalyPoints
+        {
+            get
+            {
+                return model.AnomalyPoints;
+            }
+        }
     }
 }
 
