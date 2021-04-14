@@ -45,7 +45,7 @@ A screenshot is attached:
 
 Make sure to click the ```Fly``` button and wait to see the following screen before you continue:
 
-![WhatsApp Image 2021-04-14 at 14 30 40](https://user-images.githubusercontent.com/38204874/114703614-2f25e080-9d2e-11eb-9237-14c7a15019b1.jpeg)
+![WhatsApp Image 2021-04-14 at 14 34 38](https://user-images.githubusercontent.com/59093573/114744166-13363500-9d56-11eb-853f-10d9413cc543.jpeg)
 
 Now, in the ```Visual Studio``` click the ```Start``` button to clean and build the project, and the following window will pop up:
 
