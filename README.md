@@ -112,7 +112,7 @@ The main files in our project are as follow:
 - Gitit Shapira
 - Roey Peleg
 - Dvir Asaf
-- Or Memiya
+- Or Memia
 
 
 
