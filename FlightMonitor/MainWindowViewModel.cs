@@ -40,17 +40,6 @@ namespace FlightMonitor
                 return model.AnomalyList;
             }
         }
-        public string VM_DLL
-        {
-            get
-            {
-                return model.DLL;
-            }
-            set
-            {
-                model.DLL = value;
-                NotifyPropertyChanged("DLL");
-            }
-        }
+       
     }
 }

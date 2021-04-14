@@ -99,6 +99,19 @@ namespace FlightMonitor
                 return model.AnomalyPoints;
             }
         }
+
+        public string VM_DLL
+        {
+            get
+            {
+                return model.DLL;
+            }
+            set
+            {
+                model.DLL = value;
+                NotifyPropertyChanged("DLL");
+            }
+        }
     }
 }
 

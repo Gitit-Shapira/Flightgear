@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -33,6 +34,18 @@ namespace FlightMonitor
         {
             VM = new GraphsViewModel(model);
             DataContext = VM;
+        }
+
+        private void Load_dll(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "DLL file (*.dll)|*.dll";
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Debug.WriteLine(openFileDialog.FileName);
+                VM.VM_DLL = openFileDialog.FileName;
+            }
         }
 
 
