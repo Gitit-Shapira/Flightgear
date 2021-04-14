@@ -19,6 +19,7 @@ The app will play the data like a movie from the beginning of the recording to t
 - C#
 - .NET 5.0
 - Download the Windows version for Flight Gear Simulator on https://www.flightgear.org/
+- After you are done with the previous step make sure to go to the following path ```C:\Program Files\FlightGear 2020.3.6\data\Protocol``` and then put there our XML file ().
 
 ## Getting Started
 
