@@ -56,7 +56,7 @@ Now, in the ```Visual Studio``` click the ```Start``` button to clean and build 
 - Choosing CSV - click on the ```Open CSV``` button to start your flight. You will be asked to choose a CSV file that contains the flight info (a CSV file in which flight data sampled at some rate is recorded).
   You can use one of our demo CSV files: 
   1. https://github.com/Gitit-Shapira/Flightgear/blob/main/anomaly_flight.csv - file that contines the anomaly.
-  that is located in the following path:  https://github.com/Gitit-Shapira/Flightgear/blob/main/reg_flight.csv - file that not contines the anomaly. 
+  2. that is located in the following path:  https://github.com/Gitit-Shapira/Flightgear/blob/main/reg_flight.csv - file that not contines the anomaly. 
 - Choosing XML - click on the ```Open XML``` button and choose XML file from your system :
 - Joystick - the movements of the flight is done according to the X and Y coordinates (from the CSV file)
 - Flight Data - This Lets you see some different data:
