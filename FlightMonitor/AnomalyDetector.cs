@@ -187,11 +187,11 @@ public class Timeseries
     }
 }
 
-public class AnomalyDetector
+public class BaseAnomalyDetector
 {
     public List<correlatedFeatures> cf;
     public float linThreshold;
-    public AnomalyDetector()
+    public BaseAnomalyDetector()
     {
         this.linThreshold = (float)0.9;
         cf = new List<correlatedFeatures>();
@@ -287,7 +287,7 @@ public class AnomalyDetector
     }
 }
 
-/*public class Circle_Util
+public class Circle_Util
 {
     static public float distanceBetweenPoints(Point one, Point two) {
         return (float)Math.Sqrt((one.x - two.x) * (one.x - two.x) + (one.y - two.y) * (one.y - two.y));
@@ -300,6 +300,7 @@ public class AnomalyDetector
 
     static public Circle findTrivialCircle(List<Point> points, int size)
     {
+        size = points.Count;
         if (size == 2)
         {
             //cout << points[0]->x << "," << points[0]->y << " " << points[1]->x << "," << points[1]->y << endl;
@@ -309,26 +310,32 @@ public class AnomalyDetector
         }
         else if (size == 3)
         {
-            if (pointInCircle(points[0], findTrivialCircle(points.GetRange(1,points.Count-1), 2)))
+            Circle tmp = findTrivialCircle(points.GetRange(1, 2), 2);
+            Circle tmp1 = findTrivialCircle(points.GetRange(0, 2), 2);
+            if (pointInCircle(points[0], tmp) )
             {
-                return findTrivialCircle(points.Skip(1).ToList<Point>(), 2);
+                return tmp;
             }
-            else if (pointInCircle(points[2], findTrivialCircle(points, 2)))
+            else if (pointInCircle(points[2], tmp1))
             {
-                return findTrivialCircle(points, 2);
+                return tmp1;
             }
             else
             {
-                Point[] pointArray = { points[0], points[2] };
-                if (pointInCircle(points[1], findTrivialCircle(pointArray.ToList<Point>(), 2)))
+                Point p = points[1];
+                points.RemoveAt(1);
+                Circle ccc = findTrivialCircle(points, 2);
+                if (pointInCircle(p, ccc))
                 {
-                    return findTrivialCircle(pointArray.ToList<Point>(), 2);
+                    return ccc;
                 }
+
                 //Min circle must intersect with all 3 points.
                 //Center of this circle is the circumcenter of the triangle of points[0],[1],[2]
                 //Equations are all from https://math.wikia.org/wiki/Circumscribed_circle
                 else
                 {
+                    points.Add(p);
                     float AX = points[0].x;
                     float AY = points[0].y;
                     float BX = points[1].x - AX;
@@ -355,40 +362,37 @@ public class AnomalyDetector
         }
         return new Circle (points[0], 1);
     }
-    static public Circle welzl(List<Point> p, int sizeP, List<Point> r, int sizeR)
+    static public Circle welzl(List<Point> p,  List<Point> r)
     {
-        if (sizeP == 0 || sizeR == 3)
+        if(p.Count == 0|| r.Count == 3)
         {
-            return findTrivialCircle(r, sizeR);
+            return Circle_Util.findTrivialCircle(r,3);
         }
-        Circle d = welzl(p.Skip(1).ToList<Point>(), sizeP - 1, r, sizeR);
-        if (pointInCircle(p[0], d))
+        Point p0 = p[0];
+        p.RemoveAt(0);
+        Circle tmp = welzl(p, r);
+        if (pointInCircle(p0,tmp))
         {
-            return d;
+            return tmp;
         }
-        List<Point> newR = new List<Point>();
-        for (int i = 0; i < sizeR; i++)
-        {
-            newR.Add(r[i]);
-        }
-        newR[sizeR] = p[0];
-        return welzl(p.Skip(1).ToList<Point>(), sizeP - 1, newR, sizeR + 1);
+        r.Add(p0);
+        return welzl(p, r);
     }
     static public Circle findMinCircle(List<Point>points, int size)
     {
-        return welzl(points, size, new List<Point>(), 0);
+        return welzl(points, new List<Point>());
     }
 }
 
-public class CircleAnomalyDetector : AnomalyDetector
+public class AnomalyDetector : BaseAnomalyDetector
 {
     public float circThreshold;
-    public CircleAnomalyDetector(float t)
+    public AnomalyDetector()
     {
-        circThreshold = t;
+        circThreshold = 0.5F;
     }
 
-    public override bool isAnomaly(TimeSeries ts, correlatedFeatures cf, int timeStep) {
+    public override bool isAnomaly(Timeseries ts, correlatedFeatures cf, int timeStep) {
         if (cf.corrlation > circThreshold)
         {
             var Column1 = ts.GetColumn(cf.feature1);
@@ -400,12 +404,9 @@ public class CircleAnomalyDetector : AnomalyDetector
         return false;
     }
 
-    public override void addCorrelation(TimeSeries ts, string feat1, string feat2, float pearson)
+    public override void addCorrelation(Timeseries ts, string feat1, string feat2, float pearson)
     {
-        if (pearson > linThreshold) {
-            base.addCorrelation(ts, feat1, feat2, pearson);
-        }
-        else if (pearson > circThreshold)
+        if (pearson > circThreshold)
         {
             correlatedFeatures correlation = new correlatedFeatures();
             correlation.feature1 = feat1;
@@ -413,11 +414,11 @@ public class CircleAnomalyDetector : AnomalyDetector
             correlation.corrlation = pearson;
             var Column1 = ts.GetColumn(feat1);
             var Column2 = ts.GetColumn(feat2);
-            var points = TimeSeries.CombineColumns(Column1, Column2);
-            Circle welzlCirc = Circle_Util.welzl(points, points.Count, new List<Point>(), 0);
+            var points = Timeseries.CombineColumns(Column1, Column2);
+            Circle welzlCirc = Circle_Util.welzl(points, new List<Point>());
             correlation.center = welzlCirc.center;
             correlation.threshold = welzlCirc.radius;
             cf.Add(correlation);
         }
     }
-}*/
+}

@@ -22,7 +22,6 @@ namespace FlightMonitor
             ns.Write(System.Text.Encoding.ASCII.GetBytes(lineCSV), 0, lineCSV.Length);
             ns.Flush();
         }
-
         public void disconnect()
         {
             ns.Close();
