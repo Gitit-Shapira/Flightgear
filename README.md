@@ -87,7 +87,7 @@ The main files in our project are as follow:
     - ViewModel.cs - All other ViewModels inherit this ViewModel class.
     - MainWindowViewModel.cs - The main view model
     - FlightDataViewModel.cs - The view model of flight information.
-    - FlightgearMonitorViewModel.cs - The view model of  ??
+    - FlightgearMonitorViewModel.cs - ViewModel of the control bar (Playback speed, play/stop buttons, playback slider)
     - GraphsViewModel.cs - The view model of graphs presented to the user.
     - JoystickViewModel.cs - The view model of the Joystick    -
 - View:
