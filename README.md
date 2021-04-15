@@ -84,7 +84,7 @@ The main files in our project are as follow:
     - IFlightgearMonitorModel.cs - interface for the model in the architecture MVVM
     - MyFlightgearMonitorModel - class which implements the IFlightgearMonitorModel interface
 - View Model
-    - ViewModel.cs - ??
+    - ViewModel.cs - All other ViewModels inherit this ViewModel class.
     - MainWindowViewModel.cs - The main view model
     - FlightDataViewModel.cs - The view model of flight information.
     - FlightgearMonitorViewModel.cs - The view model of  ??
