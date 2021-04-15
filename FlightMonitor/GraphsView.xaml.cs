@@ -27,7 +27,6 @@ namespace FlightMonitor
         public GraphsView()
         {
             InitializeComponent();
-
         }
 
         public void HookVM(IFlightgearMonitorModel model)
@@ -48,6 +47,11 @@ namespace FlightMonitor
             }
         }
 
-
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            anomalyGraph.Annotations.Clear();
+            anomalyGraph.Annotations.Add(VM.VM_DLLAnnotation);
+            anomalyGraph.InvalidateArrange();
+        }
     }
 }

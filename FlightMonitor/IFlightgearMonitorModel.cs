@@ -1,4 +1,5 @@
 ﻿using OxyPlot;
+using OxyPlot.Wpf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,5 +45,6 @@ namespace FlightMonitor
         List<DataPoint> AnomalyPoints { get; set; }
         List<string> AnomalyList { get; set; }
         string DLL { get; set; }
+        Annotation DLLAnnotation { get; }
     }
 }

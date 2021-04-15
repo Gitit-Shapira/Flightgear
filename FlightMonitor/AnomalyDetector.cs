@@ -1,6 +1,8 @@
-﻿using System;
+﻿using OxyPlot.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 
 public class Line
 {
@@ -35,10 +37,13 @@ public class AnomalyReport
 {
     public string description;
     public int timeStep;
-    public AnomalyReport(string description, int timeStep)
+    public float val1, val2;
+    public AnomalyReport(string description, int timeStep, float val1, float val2)
     {
         this.description = description;
         this.timeStep = timeStep;
+        this.val1 = val1;
+        this.val2 = val2;
     }
 };
 public class correlatedFeatures
@@ -48,13 +53,10 @@ public class correlatedFeatures
     public Line lin_reg;
     public float threshold;
     public Point center;
-    public Line GetLinReg()
+    public Annotation annotation;
+    public Annotation GetAnnotation()
     {
-        return lin_reg;
-    }
-    public Circle GetCircReg()
-    {
-        return new Circle(center, threshold);
+        return annotation;
     }
 };
 public class Anomaly_Detection_Util
@@ -187,13 +189,13 @@ public class Timeseries
     }
 }
 
-public class BaseAnomalyDetector
+public class AnomalyDetector
 {
     public List<correlatedFeatures> cf;
     public float linThreshold;
-    public BaseAnomalyDetector()
+    public AnomalyDetector()
     {
-        this.linThreshold = (float)0.9;
+        this.linThreshold = (float)0.8;
         cf = new List<correlatedFeatures>();
     }
 
@@ -218,6 +220,12 @@ public class BaseAnomalyDetector
             var Column2 = ts.GetColumn(feat2);
             correlation.lin_reg = Anomaly_Detection_Util.LinReg(Column1, Column2);
             correlation.threshold = getMaxDev(Timeseries.CombineColumns(Column1, Column2), correlation.lin_reg);
+            LineAnnotation regression = new LineAnnotation();
+            Line linear_regression = correlation.lin_reg;
+            regression.Slope = linear_regression.a;
+            regression.Intercept = linear_regression.b;
+            regression.Color = Colors.Blue;
+            correlation.annotation = regression;
             cf.Add(correlation);
         }
     }
@@ -264,7 +272,8 @@ public class BaseAnomalyDetector
         List<float> Column2 = ts.GetColumn(cf.feature2);
         Point currPoint = new Point(Column1[timeStep], Column2[timeStep]);
         float currDev = Anomaly_Detection_Util.dev(currPoint, cf.lin_reg);
-	    return (currDev > cf.threshold*1.1);
+        //return (Math.Abs(y - c.getLinearRegression().f(x)) > c.getThreshold());
+        return (currDev > cf.threshold*1.1);
     }
 
     public List<AnomalyReport> detect(Timeseries ts){
@@ -277,8 +286,8 @@ public class BaseAnomalyDetector
 		    {
 			    if (isAnomaly(ts, cf[cfIndex], timeStep))
 			    {
-				    //cout << "Anomaly found at " << timeStep + 1 << ": " << currDev << " crossed " << cf[cfIndex].threshold << std::endl;
-				    AnomalyReport report = new AnomalyReport(cf[cfIndex].feature1 + "-" + cf[cfIndex].feature2, timeStep + 1);
+                    //cout << "Anomaly found at " << timeStep + 1 << ": " << currDev << " crossed " << cf[cfIndex].threshold << std::endl;
+                    AnomalyReport report = new AnomalyReport(cf[cfIndex].feature1 + "-" + cf[cfIndex].feature2, timeStep,ts.GetColumn(cf[cfIndex].feature1)[timeStep], ts.GetColumn(cf[cfIndex].feature2)[timeStep]);
                     anomalies.Add(report);
 			    }
 		    }
@@ -384,12 +393,12 @@ public class Circle_Util
     }
 }
 
-public class AnomalyDetector : BaseAnomalyDetector
+public class cAnomalyDetector : AnomalyDetector
 {
     public float circThreshold;
-    public AnomalyDetector()
+    public cAnomalyDetector()
     {
-        circThreshold = 0.5F;
+        circThreshold = 0.6F;
     }
 
     public override bool isAnomaly(Timeseries ts, correlatedFeatures cf, int timeStep) {
@@ -406,19 +415,26 @@ public class AnomalyDetector : BaseAnomalyDetector
 
     public override void addCorrelation(Timeseries ts, string feat1, string feat2, float pearson)
     {
-        if (pearson > circThreshold)
-        {
-            correlatedFeatures correlation = new correlatedFeatures();
-            correlation.feature1 = feat1;
-            correlation.feature2 = feat2;
-            correlation.corrlation = pearson;
-            var Column1 = ts.GetColumn(feat1);
-            var Column2 = ts.GetColumn(feat2);
-            var points = Timeseries.CombineColumns(Column1, Column2);
-            Circle welzlCirc = Circle_Util.welzl(points, new List<Point>());
-            correlation.center = welzlCirc.center;
-            correlation.threshold = welzlCirc.radius;
-            cf.Add(correlation);
-        }
+        correlatedFeatures correlation = new correlatedFeatures();
+        correlation.feature1 = feat1;
+        correlation.feature2 = feat2;
+        correlation.corrlation = pearson;
+        var Column1 = ts.GetColumn(feat1);
+        var Column2 = ts.GetColumn(feat2);
+        var points = Timeseries.CombineColumns(Column1, Column2);
+        Circle welzlCirc = Circle_Util.welzl(points, new List<Point>());
+        correlation.center = welzlCirc.center;
+        correlation.threshold = welzlCirc.radius;
+        var a = new EllipseAnnotation();
+        a.Fill = Colors.Transparent;
+        a.StrokeThickness = 2;
+        a.X = correlation.center.x;
+        a.Y = correlation.center.y;
+        a.Height = correlation.threshold * 2;
+        a.Width = correlation.threshold * 2;
+        correlation.annotation = a;
+        correlation.annotation.Visibility = System.Windows.Visibility.Visible;
+        
+        cf.Add(correlation);
     }
 }

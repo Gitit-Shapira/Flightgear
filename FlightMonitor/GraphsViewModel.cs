@@ -1,4 +1,5 @@
 ﻿using OxyPlot;
+using OxyPlot.Wpf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -110,6 +111,14 @@ namespace FlightMonitor
             {
                 model.DLL = value;
                 NotifyPropertyChanged("DLL");
+            }
+        }
+
+        public Annotation VM_DLLAnnotation
+        {
+            get
+            {
+                return model.DLLAnnotation;
             }
         }
     }

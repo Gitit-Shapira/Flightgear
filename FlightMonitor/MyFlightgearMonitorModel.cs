@@ -1,4 +1,5 @@
 ﻿using OxyPlot;
+using OxyPlot.Wpf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +16,17 @@ namespace FlightMonitor
         //fields
         System.IO.StreamReader file, learnFile;
         string line;
-        TimeSeries timeS, learnTS;
+        TimeSeries timeS;
         Timeseries times, learnts;
         private volatile int lineCSV;
         private int speed;
-        string path, learnPath, dllPath;
+        string path, dllPath;
         string xmlpath;
         private double x, y, aileron, elevator, rudder, throttle;
         //INotifyPropertyChanged implementation:
         public event PropertyChangedEventHandler PropertyChanged;
         string selection, corFeat;
-        List<DataPoint> selFeatDataPoints, corFeatDataPoints, combinedDataPoints, recentCombinedDataPoints, dlldisplay, anomalyPoints;
+        List<DataPoint> selFeatDataPoints, corFeatDataPoints, combinedDataPoints, recentCombinedDataPoints, anomaliesPoints, anomalyPoints;
         ITelnetClient telnetClient;
         volatile Boolean stop;
         Dictionary<string, string> Correlations;
@@ -262,7 +263,20 @@ namespace FlightMonitor
                 CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV);
                 LinRegDataPoints = TimeSeriesUtil.LinReg(timeS.GetColumn(selection), timeS.GetColumn(corFeat));
                 CombinedDataPoints = TimeSeriesUtil.CombineColumns(timeS.GetColumn(selection), timeS.GetColumn(corFeat));
-
+                new Task(() =>
+                {
+                    AnomalyPoints = new List<DataPoint>();
+                    for (int i = 0; i < anomaliesPoints.Count; i++)
+                    {
+                        if (anomalyList[i] == selection + "-" + corFeat || anomalyList[i] == corFeat + "-" + selection)
+                        {
+                            anomalyPoints.Add(anomaliesPoints[i]);
+                        }
+                    }
+                    var templ = anomalyPoints;
+                    AnomalyPoints = new List<DataPoint>();
+                    AnomalyPoints = templ;
+                }).Start();
                 NotifyPropertyChanged("Selection");
             }
             get
@@ -377,7 +391,6 @@ namespace FlightMonitor
                 NotifyPropertyChanged("RecentCombinedDataPoints");
             }
         }
-
         public List<string> AnomalyList
         {
             get
@@ -413,18 +426,19 @@ namespace FlightMonitor
         {
             get
             {
-                if (dlldisplay != null)
-                {
-                    return dlldisplay;
-                }
-                else
-                {
-                    return new List<DataPoint>();
-                }
+                /* if (dlldisplay != null)
+                 {
+                     return dlldisplay;
+                 }
+                 else
+                 {
+                     return new List<DataPoint>();
+                 }*/
+                return new List<DataPoint>();
             }
             set
             {
-                recentCombinedDataPoints = value;
+                //recentCombinedDataPoints = value;
                 NotifyPropertyChanged("DLLDisplay");
             }
         }
@@ -443,13 +457,53 @@ namespace FlightMonitor
             }
             set
             {
-                recentCombinedDataPoints = value;
+                anomalyPoints = value;
                 NotifyPropertyChanged("AnomalyPoints");
             }
         }
 
         public string DLL { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        public Annotation DLLAnnotation
+        {
+            get
+            {
+                var nm = detector.GetNormalModel();
+                nm.ForEach(x => Debug.WriteLine(x.feature1 + " and " + x.feature2));
+                var y = nm.Find(x => (x.feature1 == selection && x.feature2 == corFeat) || (x.feature2 == selection && x.feature1 == corFeat));
+                if (y != null)
+                    
+                    return y.GetAnnotation();
+                else
+                    return new LineAnnotation();
+            }
+        }
+        public class AnomalyReport
+        {
+            public string description;
+            public int timeStep;
+            public float val1, val2;
+            public AnomalyReport(string description, int timeStep, float val1, float val2)
+            {
+                this.description = description;
+                this.timeStep = timeStep;
+                this.val1 = val1;
+                this.val2 = val2;
+            }
+        };
+        public class correlatedFeatures
+        {
+            public string feature1, feature2;  // names of the correlated features
+            public float corrlation;
+            public Line lin_reg;
+            public float threshold;
+            public Point center;
+            public Annotation annotation;
+            public Annotation GetAnnotation()
+            {
+                return annotation;
+            }
+        };
         //the methods
         //constructor
         public MyFlightgearMonitorModel(ITelnetClient telnetClient)
@@ -500,14 +554,12 @@ namespace FlightMonitor
                 learnts.AddRow(line);
             }
             detector.LearnNormal(learnts);
-            detector.detect(times).ForEach(x => { AnomalyList.Add(x.description); AnomalyTimeList.Add(x.timeStep); });
+            anomaliesPoints = new List<DataPoint>();
+            detector.detect(times).ForEach(x => { AnomalyList.Add(x.description); AnomalyTimeList.Add(x.timeStep); anomaliesPoints.Add(new DataPoint(x.val1, x.val2)); });
             detectCorrelations();
             NotifyPropertyChanged("LengthCSV");
             NotifyPropertyChanged("IsXMLInput");
             NotifyPropertyChanged("ColumnNames");
-            List<string> temp = anomalyList;
-            AnomalyList = new List<string>();
-            AnomalyList = temp;
             start();
         }
         public void disconnect()
@@ -565,14 +617,13 @@ namespace FlightMonitor
                     int rangeBegin = Math.Max(LineCSV - 300, 0);
                     Task t1 = new Task(() => SelFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(selection), LineCSV));
                     Task t2 = new Task(() => CorFeatDataPoints = TimeSeriesUtil.ColumnToDataPoints(timeS.GetColumn(corFeat), LineCSV));
+                    t1.Start();
+                    t2.Start();
                     if (CombinedDataPoints.Count != 0)
                     {
                         Task t3 = new Task(() => RecentCombinedDataPoints = CombinedDataPoints.GetRange(rangeBegin, LineCSV - rangeBegin));
                         t3.Start();
                     }
-                    t1.Start();
-                    t2.Start();
-
                 }
             }
         }

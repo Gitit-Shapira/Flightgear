@@ -13,7 +13,7 @@ namespace FlightMonitor
         {
             client = new TcpClient(ip, port);
             ns = client.GetStream();
-            Debug.WriteLine("CONNECTED");
+            //Debug.WriteLine("CONNECTED");
         }
         public void write(string lineCSV)
         {

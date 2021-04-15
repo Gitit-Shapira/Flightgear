@@ -23,7 +23,7 @@
             <ComboBox x:Name="comboBox"
                       IsEnabled="{Binding VM_FilesInput}"
                       ItemsSource="{Binding VM_ColumnNames}"
-                      SelectedValue="{Binding VM_Selection}"/>
+                      SelectedValue="{Binding VM_Selection}" SelectionChanged="comboBox_SelectionChanged"/>
         </StackPanel>
         <Button Grid.Row="1" Grid.Column="1" 
                 Content="Open DLL" Click ="Load_dll" />
@@ -44,8 +44,7 @@
                 <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="HotPink" ItemsSource="{Binding VM_RecentCombinedDataPoints}" DataFieldX="X" DataFieldY="Y"/>
             </oxy:Plot.Series>
         </oxy:Plot>
-        <oxy:Plot Grid.Row="3"  Title="Anomalies" TitleFontSize="10" Background="#7FFFFFFF">
-            <oxy:LineSeries Background="Transparent" ItemsSource="{Binding VM_DLLDisplay}" DataFieldX="X" DataFieldY="Y"/>
+        <oxy:Plot Name="anomalyGraph" Grid.Row="3"  Title="Anomalies" TitleFontSize="10" Background="#7FFFFFFF">
             <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="Black" ItemsSource="{Binding VM_CombinedDataPoints}" DataFieldX="X" DataFieldY="Y"/>
             <oxy:LineSeries Background="Transparent" LineStyle="None"  MarkerType="Circle" MarkerSize="1" MarkerFill="OrangeRed" ItemsSource="{Binding VM_AnomalyPoints}" DataFieldX="X" DataFieldY="Y"/>
         </oxy:Plot>
